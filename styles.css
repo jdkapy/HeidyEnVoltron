@@ -18,6 +18,20 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
 }
 
 .container {
@@ -34,6 +48,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    height: auto;
 }
 
 nav {
@@ -41,17 +56,26 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    flex-wrap: wrap;
 }
 
 .logo h1 {
     color: var(--primary-color);
     font-size: 1.5rem;
+    white-space: nowrap;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-menu li {
+    flex: 0 1 auto;
 }
 
 .nav-menu a {
@@ -59,6 +83,8 @@ nav {
     color: var(--text-color);
     font-weight: 500;
     transition: color 0.3s;
+    display: block;
+    padding: 0.5rem;
 }
 
 .nav-menu a:hover {
@@ -76,21 +102,22 @@ main {
     color: var(--white);
     text-align: center;
     padding: 4rem 2rem;
+    min-height: auto;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     margin-bottom: 0.5rem;
 }
 
 .hero-content h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     margin-bottom: 2rem;
     opacity: 0.9;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.2rem);
     max-width: 800px;
     margin: 0 auto 3rem;
 }
@@ -130,7 +157,7 @@ main {
 .trip-overview h2 {
     text-align: center;
     margin-bottom: 3rem;
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     color: var(--primary-color);
 }
 
@@ -162,7 +189,7 @@ main {
 .quick-links h2 {
     text-align: center;
     margin-bottom: 3rem;
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     color: var(--primary-color);
 }
 
@@ -209,6 +236,15 @@ main {
     margin-top: 80px;
 }
 
+.page-header h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
 .page-content {
     padding: 4rem 0;
 }
@@ -225,6 +261,16 @@ main {
     background: var(--primary-color);
     color: var(--white);
     padding: 1.5rem;
+}
+
+.day-header h2, .card-header h2 {
+    font-size: clamp(1.1rem, 3vw, 1.8rem);
+    margin-bottom: 0.25rem;
+}
+
+.day-header p, .card-header p {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    opacity: 0.9;
 }
 
 .day-content, .card-content {
@@ -274,11 +320,38 @@ footer {
     padding: 2rem 0;
 }
 
-/* Responsive Design */
+/* Responsive Design - Mobile First Approach */
+
+/* Tablets (768px and up) */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    nav {
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+    
     .nav-menu {
-        flex-direction: column;
         gap: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.5rem;
+    }
+    
+    main {
+        margin-top: 100px;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
     }
     
     .hero-content h1 {
@@ -289,11 +362,277 @@ footer {
         font-size: 1.2rem;
     }
     
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
     .trip-highlights {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .highlight {
+        padding: 1.5rem;
+    }
+    
+    .trip-overview {
+        padding: 2rem 0;
+    }
+    
+    .trip-overview h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .trip-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .stat {
+        padding: 1.5rem 1rem;
+    }
+    
+    .stat h3 {
+        font-size: 2rem;
+    }
+    
+    .quick-links {
+        padding: 2rem 0;
+    }
+    
+    .quick-links h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
     }
     
     .links-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .link-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .link-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .page-header {
+        padding: 2rem 1rem;
+        margin-top: 100px;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .page-content {
+        padding: 2rem 0;
+    }
+    
+    .day-card, .activity-card, .accommodation-card, .budget-item, .flight-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .day-content, .card-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    .day-content ul, .card-content ul {
+        margin-left: 1.5rem;
+    }
+    
+    .day-content h4, .card-content h4 {
+        font-size: 1rem;
+        margin: 1rem 0 0.5rem;
+    }
+    
+    footer {
+        padding: 1.5rem 0;
+    }
+}
+
+/* Móviles pequeños (480px and down) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    nav {
+        padding: 0.75rem;
+    }
+    
+    .logo h1 {
+        font-size: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.4rem 0.2rem;
+    }
+    
+    header {
+        position: relative;
+    }
+    
+    main {
+        margin-top: 0;
+    }
+    
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+    
+    .trip-highlights {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .highlight {
+        padding: 1rem;
+    }
+    
+    .highlight .icon {
+        font-size: 2.5rem;
+    }
+    
+    .highlight h3 {
+        font-size: 1.1rem;
+    }
+    
+    .trip-overview {
+        padding: 1.5rem 0;
+    }
+    
+    .trip-overview h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .trip-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .stat {
+        padding: 1rem 0.5rem;
+    }
+    
+    .stat h3 {
+        font-size: 1.5rem;
+    }
+    
+    .stat p {
+        font-size: 0.85rem;
+    }
+    
+    .quick-links {
+        padding: 1.5rem 0;
+    }
+    
+    .quick-links h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .links-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .link-card {
+        padding: 1rem;
+    }
+    
+    .link-card .icon {
+        font-size: 2.5rem;
+    }
+    
+    .link-card h3 {
+        font-size: 1rem;
+    }
+    
+    .link-card p {
+        font-size: 0.85rem;
+    }
+    
+    .page-header {
+        padding: 1.5rem 1rem;
+        margin-top: 0;
+    }
+    
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .page-header p {
+        font-size: 0.9rem;
+    }
+    
+    .page-content {
+        padding: 1.5rem 0;
+    }
+    
+    .day-card, .activity-card, .accommodation-card, .budget-item, .flight-card {
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+    
+    .day-header, .card-header {
+        padding: 1rem;
+    }
+    
+    .day-header h2, .card-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .day-content, .card-content {
+        padding: 1rem;
+    }
+    
+    .day-content h4, .card-content h4 {
+        font-size: 0.95rem;
+    }
+    
+    .day-content ul, .card-content ul {
+        margin-left: 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .day-content li, .card-content li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .price-tag {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    footer {
+        padding: 1rem 0;
+    }
+    
+    footer p {
+        font-size: 0.85rem;
     }
 }

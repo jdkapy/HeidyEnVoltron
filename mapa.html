@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa del Viaje - Heidy en Voltron</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .map-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .route-point {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .route-point h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .route-point p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .route-stats {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-box h4 {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box .value {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .legend {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .legend h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 15px;
+            margin-right: 1rem;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            #map {
+                height: 400px;
+            }
+
+            .map-info {
+                grid-template-columns: 1fr;
+            }
+
+            .route-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #map {
+                height: 300px;
+            }
+
+            .route-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-box .value {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>🚐 Heidy en Voltron</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="itinerario.html">Itinerario</a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="alojamientos.html">Alojamientos</a></li>
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="vuelos.html">Vuelos</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>🗺️ Mapa de Ruta</h1>
+                <p>Visualiza nuestra ruta base y la opción CERN del viaje</p>
+            </div>
+        </section>
+
+        <section class="page-content">
+            <div class="container">
+                
+                <div id="map"></div>
+
+                <div class="route-stats">
+                    <div class="stat-box">
+                        <h4>📍 Puntos Principales</h4>
+                        <span class="value">12</span>
+                    </div>
+                    <div class="stat-box">
+                        <h4>🛣️ Distancia Total</h4>
+                        <span class="value">~1800km</span>
+                    </div>
+                    <div class="stat-box">
+                        <h4>🗓️ Duración Viaje</h4>
+                        <span class="value">15 días</span>
+                    </div>
+                    <div class="stat-box">
+                        <h4>🌍 Países</h4>
+                        <span class="value">3</span>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Leyenda del Mapa</h3>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #e74c3c;"></div>
+                        <span><strong>Vuelos:</strong> Puntos de entrada y salida</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #3498db;"></div>
+                        <span><strong>Alojamientos:</strong> Hoteles y campings</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #2ecc71;"></div>
+                        <span><strong>Actividades:</strong> Atracciones principales</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #f39c12;"></div>
+                        <span><strong>Ciudades:</strong> Puntos de interés</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);"></div>
+                        <span><strong>Ruta:</strong> Camino recorrido en autocaravana</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #16a085;"></div>
+                        <span><strong>Opcional:</strong> Punto alternativo CERN</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: repeating-linear-gradient(90deg, #16a085 0, #16a085 6px, transparent 6px, transparent 10px);"></div>
+                        <span><strong>Ruta opcional:</strong> Desvío sin estrés para visitar CERN</span>
+                    </div>
+                </div>
+
+                <h2 style="color: var(--primary-color); margin-bottom: 2rem; font-size: 1.8rem;">📍 Puntos Clave del Viaje</h2>
+                <div class="map-info">
+                    <div class="route-point">
+                        <h3>✈️ Madrid (Vuelo Salida)</h3>
+                        <p><strong>25 de junio</strong></p>
+                        <p>Partida hacia la aventura. Vuelo IB0663 a las 8:50 desde T4</p>
+                        <p style="margin-top: 0.5rem;">📌 40.4168° N, 3.6278° W</p>
+                    </div>
+
+                    <div class="route-point">
+                        <h3>🇮🇹 Milán (Llegada y Recogida)</h3>
+                        <p><strong>25-26 de junio</strong></p>
+                        <p>Llegada a Milano Linate. Recogida de autocaravana en Malpensa. BB Hotels & Navigli.</p>
+                        <p style="margin-top: 0.5rem;">📌 45.4668° N, 9.1904° E</p>
+                    </div>
+
+                    <div class="route-point">
+                        <h3>🏔️ Val di Fassa (Dolomitas)</h3>
+                        <p><strong>27-29 de junio</strong></p>
+                        <p>Fun Bob, Teleférico Sass Pordoi, Lago di Braies. La belleza alpina de Italia.</p>
+                        <p style="margin-top: 0.5rem;">📌 46.4400° N, 11.7789° E</p>
+                    </div>
+
+                    <div class="route-point">
+                        <h3>🎢 Europa-Park (Rust, Alemania)</h3>
+                        <p><strong>29 junio - 1 julio</strong></p>
+                        <p>Silver Star, Voltron, Blue Fire y Rulantica. El parque más emocionante de Europa.</p>
+                        <p style="margin-top: 0.5rem;">📌 48.2751° N, 7.7259° E</p>
+                    </div>
+
+                    <div class="route-point">
+                        <h3>💦 Cataratas del Rin (Schaffhausen)</h3>
+                        <p><strong>1-3 de julio</strong></p>
+                        <p>Las cascadas más potentes de Europa. Barco hasta la roca central. Castillo Laufen historic.</p>
+                        <p style="margin-top: 0.5rem;">📌 47.6829° N, 8.6169° E</p>
+                    </div>
+
+                    <div class="route-point">
+                        <h3>🌊 Zúrich (Capital Suiza)</h3>
+                        <p><strong>3-4 de julio</strong></p>
+                        <p>Casco antiguo, Museo FIFA, paseos en barco. Cultura y modernidad a orillas del lago.</p>
+                        <p style="margin-top: 0.5rem;">📌 47.3769° N, 8.5472° E</p>
+                    </div>
+
+                    <div class="route-point">
+                        <h3>❄️ Jungfraujoch (Alpes Suizos)</h3>
+                        <p><strong>4-5 de julio</strong></p>
+                        <p>Top of Europe a 3.454 metros. Glaciares eternos y vistas panorámicas 360°.</p>
+                        <p style="margin-top: 0.5rem;">📌 46.5469° N, 8.0739° E</p>
+                    </div>
+
+                    <div class="route-point">
+                        <h3>🏔️ Lauterbrunnen (Valle de las Cascadas)</h3>
+                        <p><strong>4-5 de julio</strong></p>
+                        <p>72 cascadas, Trümmelbach Falls, Teleférico Männlichen. Senderismo en los Alpes.</p>
+                        <p style="margin-top: 0.5rem;">📌 46.5927° N, 8.0683° E</p>
+                    </div>
+
+                    <div class="route-point">
+                        <h3>🔬 CERN (Opcional sin estrés)</h3>
+                        <p><strong>Opcional (si hay reserva)</strong></p>
+                        <p>Desvío recomendado solo con 1 día extra de caravana y visita confirmada.</p>
+                        <p style="margin-top: 0.5rem;">📌 46.2330° N, 6.0559° E</p>
+                    </div>
+
+                    <div class="route-point">
+                        <h3>🚐 Malpensa (Devolución final)</h3>
+                        <p><strong>8-9 de julio</strong></p>
+                        <p>Devolución directa de autocaravana y traslado al aeropuerto para vuelo, sin última noche en Milán.</p>
+                        <p style="margin-top: 0.5rem;">📌 45.6306° N, 8.7281° E</p>
+                    </div>
+
+                    <div class="route-point">
+                        <h3>✈️ Madrid (Vuelo Regreso)</h3>
+                        <p><strong>9 de julio</strong></p>
+                        <p>Vuelo IB0664 a las 11:40. Fin de la aventura, comienzo de los recuerdos.</p>
+                        <p style="margin-top: 0.5rem;">📌 40.4168° N, 3.6278° W</p>
+                    </div>
+                </div>
+
+                <div style="background: var(--light-bg); padding: 2rem; border-radius: 10px; margin-top: 3rem;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">💡 Consejos para la Navegación</h3>
+                    <ul style="margin-left: 2rem;">
+                        <li><strong>Google Maps Offline:</strong> Descarga las regiones antes del viaje</li>
+                        <li><strong>Maps.me:</strong> Excelente para navegación sin conexión en autocaravana</li>
+                        <li><strong>Park4Night:</strong> Localiza campings y áreas de descanso confiables</li>
+                        <li><strong>Peaje Italiano:</strong> Viñeta Telepass recomendada o telepeaje dinámico</li>
+                        <li><strong>Viñeta Suiza:</strong> Obligatoria (40 CHF), compra en frontera</li>
+                        <li><strong>Gasolineras:</strong> Repostaje económico en Alemania. En Suiza caros pero eficientes</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Heidy en Voltron - Aventura Europea. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+        // Inicializar el mapa
+        const map = L.map('map').setView([46.5, 10.5], 5);
+
+        // Agregar capa de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Definir los puntos de la ruta
+        const routePoints = [
+            {
+                name: 'Madrid (Salida)',
+                lat: 40.4168,
+                lng: -3.6278,
+                icon: '✈️',
+                description: 'Vuelo salida 8:50',
+                color: '#e74c3c',
+                date: '25 junio'
+            },
+            {
+                name: 'Milán (Llegada)',
+                lat: 45.4668,
+                lng: 9.1904,
+                icon: '🇮🇹',
+                description: 'Llegada 11:00, recogida autocaravana',
+                color: '#e74c3c',
+                date: '25-26 junio'
+            },
+            {
+                name: 'Val di Fassa (Dolomitas)',
+                lat: 46.4400,
+                lng: 11.7789,
+                icon: '🏔️',
+                description: 'Fun Bob, Teleféricos, Senderismo',
+                color: '#2ecc71',
+                date: '27-29 junio'
+            },
+            {
+                name: 'Cortina d\'Ampezzo',
+                lat: 46.5369,
+                lng: 12.1394,
+                icon: '⛷️',
+                description: 'Tres Cimas, Teleférico Faloria',
+                color: '#f39c12',
+                date: '28 junio'
+            },
+            {
+                name: 'Europa-Park (Rust)',
+                lat: 48.2751,
+                lng: 7.7259,
+                icon: '🎢',
+                description: 'Silver Star, Voltron, Rulantica',
+                color: '#2ecc71',
+                date: '29 junio - 1 julio'
+            },
+            {
+                name: 'Cataratas del Rin',
+                lat: 47.6829,
+                lng: 8.6169,
+                icon: '💦',
+                description: 'Cascadas más potentes de Europa',
+                color: '#2ecc71',
+                date: '1-3 julio'
+            },
+            {
+                name: 'Zúrich',
+                lat: 47.3769,
+                lng: 8.5472,
+                icon: '🏙️',
+                description: 'Casco antiguo, Museo FIFA',
+                color: '#f39c12',
+                date: '3-4 julio'
+            },
+            {
+                name: 'Jungfraujoch',
+                lat: 46.5469,
+                lng: 8.0739,
+                icon: '❄️',
+                description: 'Top of Europe 3.454m',
+                color: '#3498db',
+                date: '4-5 julio'
+            },
+            {
+                name: 'Lauterbrunnen',
+                lat: 46.5927,
+                lng: 8.0683,
+                icon: '🏔️',
+                description: 'Valle de las cascadas',
+                color: '#3498db',
+                date: '4-5 julio'
+            },
+            {
+                name: 'CERN (Opcional)',
+                lat: 46.2330,
+                lng: 6.0559,
+                icon: '🔬',
+                description: 'Visita opcional con 1 día extra y reserva previa',
+                color: '#16a085',
+                date: 'Opcional'
+            },
+            {
+                name: 'Malpensa (Devolución)',
+                lat: 45.6306,
+                lng: 8.7281,
+                icon: '🚐',
+                description: 'Devolución final de autocaravana antes del vuelo',
+                color: '#3498db',
+                date: '8-9 julio'
+            },
+            {
+                name: 'Madrid (Regreso)',
+                lat: 40.4168,
+                lng: -3.6278,
+                icon: '✈️',
+                description: 'Vuelo regreso 11:40',
+                color: '#e74c3c',
+                date: '9 julio'
+            }
+        ];
+
+        // Coordenadas de la ruta en orden
+        const routeCoordinates = [
+            [40.4168, -3.6278],  // Madrid
+            [45.4668, 9.1904],   // Milán
+            [46.4400, 11.7789],  // Val di Fassa
+            [46.5369, 12.1394],  // Cortina d'Ampezzo
+            [48.2751, 7.7259],   // Europa-Park
+            [47.6829, 8.6169],   // Cataratas del Rin
+            [47.3769, 8.5472],   // Zúrich
+            [46.5469, 8.0739],   // Jungfraujoch
+            [46.5927, 8.0683],   // Lauterbrunnen
+            [45.6306, 8.7281],   // Malpensa (devolución)
+            [40.4168, -3.6278]   // Madrid (regreso)
+        ];
+
+        // Ruta opcional CERN (solo si se amplía 1 día y hay reserva)
+        const optionalCernRoute = [
+            [46.5927, 8.0683],   // Lauterbrunnen
+            [46.2330, 6.0559],   // CERN
+            [45.6306, 8.7281]    // Malpensa
+        ];
+
+        // Dibujar línea de la ruta
+        L.polyline(routeCoordinates, {
+            color: '#3498db',
+            weight: 3,
+            opacity: 0.7,
+            dashArray: '5, 5'
+        }).addTo(map);
+
+        L.polyline(optionalCernRoute, {
+            color: '#16a085',
+            weight: 3,
+            opacity: 0.85,
+            dashArray: '10, 6'
+        }).addTo(map);
+
+        // Agregar marcadores para cada punto
+        routePoints.forEach((point, index) => {
+            const markerColor = point.color;
+            
+            // Crear icono HTML personalizado
+            const customIcon = L.divIcon({
+                html: `<div style="background-color: ${markerColor}; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 2px 5px rgba(0,0,0,0.3); border: 3px solid white;">
+                    ${point.icon}
+                </div>`,
+                iconSize: [40, 40],
+                className: 'custom-marker'
+            });
+
+            // Crear popup con información
+            const popupContent = `
+                <div style="font-family: Arial, sans-serif; width: 250px;">
+                    <h4 style="margin: 0 0 0.5rem; color: #2c5aa0;">${point.name}</h4>
+                    <p style="margin: 0.3rem 0; font-size: 0.85rem;"><strong>Fecha:</strong> ${point.date}</p>
+                    <p style="margin: 0.3rem 0; font-size: 0.85rem;"><strong>Descripción:</strong> ${point.description}</p>
+                    <p style="margin: 0.5rem 0 0; font-size: 0.75rem; color: #666;">Día ${index + 1}</p>
+                </div>
+            `;
+
+            // Agregar marcador al mapa
+            L.marker([point.lat, point.lng], { icon: customIcon })
+                .bindPopup(popupContent)
+                .addTo(map);
+        });
+
+        // Auto-ajustar vista al mapa
+        const bounds = L.latLngBounds(routeCoordinates);
+        map.fitBounds(bounds, { padding: [50, 50] });
+    </script>
+</body>
+</html>
