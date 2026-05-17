@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Por hacer - Heidy en Voltron</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .todo-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .todo-item {
+            border: 1px solid #e6e6e6;
+            border-radius: 10px;
+            padding: 1rem;
+            background: #fff;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .todo-main {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .todo-main input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .todo-item.done .todo-text {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .todo-meta {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .todo-meta label {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .todo-meta input[type="text"] {
+            border: 1px solid #d5d5d5;
+            border-radius: 8px;
+            padding: 0.5rem 0.65rem;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        .todo-help {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        @media (max-width: 640px) {
+            .todo-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>🚐 Heidy en Voltron</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="itinerario.html">Itinerario</a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="alojamientos.html">Alojamientos</a></li>
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="vuelos.html">Vuelos</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="tareas.html">Por hacer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Por hacer</h1>
+                <p>Tareas pendientes para cerrar la preparacion del viaje</p>
+            </div>
+        </section>
+
+        <section class="page-content">
+            <div class="container">
+                <div class="budget-item">
+                    <div class="card-header">
+                        <h2>✅ Checklist de pendientes</h2>
+                        <p>Marca cuando este hecho y apunta quien lo hizo</p>
+                    </div>
+                    <div class="card-content">
+                        <ul class="todo-list">
+                            <li class="todo-item" data-task-id="parking-barajas">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-parking-barajas">
+                                    <label class="todo-text" for="check-parking-barajas">Reservar el parquin de Barajas</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-parking-barajas">Hecho por:</label>
+                                    <input type="text" id="owner-parking-barajas" placeholder="Nombre de quien lo hizo">
+                                </div>
+                            </li>
+                            <li class="todo-item" data-task-id="precio-maleta">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-precio-maleta">
+                                    <label class="todo-text" for="check-precio-maleta">Revisar precio de una maleta</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-precio-maleta">Hecho por:</label>
+                                    <input type="text" id="owner-precio-maleta" placeholder="Nombre de quien lo hizo">
+                                </div>
+                            </li>
+                            <li class="todo-item" data-task-id="tour-milan">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-tour-milan">
+                                    <label class="todo-text" for="check-tour-milan">Confirmar tour de Milan</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-tour-milan">Hecho por:</label>
+                                    <input type="text" id="owner-tour-milan" placeholder="Nombre de quien lo hizo">
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="todo-help">Los cambios no se guardan al recargar la pagina.</p>
+                        <div class="price-tag">Prioridad alta</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Heidy en Voltron - Aventura Europea. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function applyDoneStyle(item, isDone) {
+            item.classList.toggle('done', isDone);
+        }
+
+        document.querySelectorAll('.todo-item').forEach((item) => {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            applyDoneStyle(item, checkbox.checked);
+
+            checkbox.addEventListener('change', () => {
+                applyDoneStyle(item, checkbox.checked);
+            });
+        });
+    </script>
+</body>
+</html>
