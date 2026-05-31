@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa del Viaje - Heidy en Voltron</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <style>
         #map {
             height: 600px;
@@ -22,12 +22,71 @@
             margin-bottom: 3rem;
         }
 
+        .country-section {
+            margin-bottom: 2rem;
+        }
+
+        .country-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
         .route-point {
             background: var(--white);
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-color);
+        }
+
+        .route-point.country-es {
+            border-left-color: #e74c3c;
+        }
+
+        .route-point.country-it {
+            border-left-color: #27ae60;
+        }
+
+        .route-point.country-de {
+            border-left-color: #f39c12;
+        }
+
+        .route-point.country-ch {
+            border-left-color: #3498db;
+        }
+
+        .country-badge {
+            display: inline-block;
+            margin-left: 0.5rem;
+            padding: 0.1rem 0.45rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            color: #fff;
+            vertical-align: middle;
+        }
+
+        .country-badge-es {
+            background: #e74c3c;
+        }
+
+        .country-badge-it {
+            background: #27ae60;
+        }
+
+        .country-badge-de {
+            background: #f39c12;
+        }
+
+        .country-badge-ch {
+            background: #3498db;
         }
 
         .route-point h3 {
@@ -144,6 +203,8 @@
                 <li><a href="presupuesto.html">Presupuesto</a></li>
                 <li><a href="vuelos.html">Vuelos</a></li>
                 <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="rutas.html">Rutas</a></li>
+                <li><a href="mundial.html">Mundial</a></li>
                 <li><a href="tareas.html">Por hacer</a></li>
             </ul>
         </nav>
@@ -214,89 +275,107 @@
                 </div>
 
                 <h2 style="color: var(--primary-color); margin-bottom: 2rem; font-size: 1.8rem;">📍 Puntos Clave del Viaje</h2>
-                <div class="map-info">
-                    <div class="route-point">
-                        <h3>✈️ Madrid (Vuelo Salida)</h3>
-                        <p><strong>25 de junio</strong></p>
-                        <p>Partida hacia la aventura. Vuelo IB0663 a las 8:50 desde T4</p>
-                        <p style="margin-top: 0.5rem;">📌 40.4168° N, 3.6278° W</p>
-                    </div>
+                <div class="country-section">
+                    <h3>🇪🇸 España</h3>
+                    <div class="country-grid">
+                        <div class="route-point country-es">
+                            <h3>✈️ Madrid (Vuelo Salida) <span class="country-badge country-badge-es">España</span></h3>
+                            <p><strong>25 de junio</strong></p>
+                            <p>Partida hacia la aventura. Vuelo IB0663 a las 8:50 desde T4</p>
+                            <p style="margin-top: 0.5rem;">📌 40.4168° N, 3.6278° W</p>
+                        </div>
 
-                    <div class="route-point">
-                        <h3>🇮🇹 Milán (Llegada y Recogida)</h3>
-                        <p><strong>25-26 de junio</strong></p>
-                        <p>Llegada a Milano Linate. Recogida de autocaravana en Malpensa. BB Hotels & Navigli.</p>
-                        <p style="margin-top: 0.5rem;">📌 45.4668° N, 9.1904° E</p>
+                        <div class="route-point country-es">
+                            <h3>✈️ Madrid (Vuelo Regreso) <span class="country-badge country-badge-es">España</span></h3>
+                            <p><strong>9 de julio</strong></p>
+                            <p>Vuelo IB0664 a las 11:40. Fin de la aventura, comienzo de los recuerdos.</p>
+                            <p style="margin-top: 0.5rem;">📌 40.4168° N, 3.6278° W</p>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="route-point">
-                        <h3>🏔️ Val di Fassa (Dolomitas)</h3>
-                        <p><strong>27-29 de junio</strong></p>
-                        <p>Fun Bob, Teleférico Sass Pordoi, Lago di Braies. La belleza alpina de Italia.</p>
-                        <p style="margin-top: 0.5rem;">📌 46.4400° N, 11.7789° E</p>
+                <div class="country-section">
+                    <h3>🇮🇹 Italia</h3>
+                    <div class="country-grid">
+                        <div class="route-point country-it">
+                            <h3>🇮🇹 Milán (Llegada y Recogida) <span class="country-badge country-badge-it">Italia</span></h3>
+                            <p><strong>25-26 de junio</strong></p>
+                            <p>Llegada a Milano Linate. Recogida de autocaravana en Malpensa. BB Hotels & Navigli.</p>
+                            <p style="margin-top: 0.5rem;">📌 45.4668° N, 9.1904° E</p>
+                        </div>
+
+                        <div class="route-point country-it">
+                            <h3>🏔️ Val di Fassa (Dolomitas) <span class="country-badge country-badge-it">Italia</span></h3>
+                            <p><strong>27-29 de junio</strong></p>
+                            <p>Fun Bob, Teleférico Sass Pordoi, Lago di Braies. La belleza alpina de Italia.</p>
+                            <p style="margin-top: 0.5rem;">📌 46.4400° N, 11.7789° E</p>
+                        </div>
+
+                        <div class="route-point country-it">
+                            <h3>⛷️ Cortina d'Ampezzo <span class="country-badge country-badge-it">Italia</span></h3>
+                            <p><strong>28 de junio</strong></p>
+                            <p>Sorapis, Braies o Tres Cimas según la alternativa elegida. Base oriental de Dolomitas.</p>
+                            <p style="margin-top: 0.5rem;">📌 46.5369° N, 12.1394° E</p>
+                        </div>
+
+                        <div class="route-point country-it">
+                            <h3>🚐 Malpensa (Devolución final) <span class="country-badge country-badge-it">Italia</span></h3>
+                            <p><strong>8-9 de julio</strong></p>
+                            <p>Devolución directa de autocaravana y traslado al aeropuerto para vuelo, sin última noche en Milán.</p>
+                            <p style="margin-top: 0.5rem;">📌 45.6306° N, 8.7281° E</p>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="route-point">
-                        <h3>⛷️ Cortina d'Ampezzo</h3>
-                        <p><strong>28 de junio</strong></p>
-                        <p>Sorapis, Braies o Tres Cimas según la alternativa elegida. Base oriental de Dolomitas.</p>
-                        <p style="margin-top: 0.5rem;">📌 46.5369° N, 12.1394° E</p>
+                <div class="country-section">
+                    <h3>🇩🇪 Alemania</h3>
+                    <div class="country-grid">
+                        <div class="route-point country-de">
+                            <h3>🎢 Europa-Park (Rust, Alemania) <span class="country-badge country-badge-de">Alemania</span></h3>
+                            <p><strong>29 junio - 1 julio</strong></p>
+                            <p>Silver Star, Voltron, Blue Fire y Rulantica. El parque más emocionante de Europa.</p>
+                            <p style="margin-top: 0.5rem;">📌 48.2751° N, 7.7259° E</p>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="route-point">
-                        <h3>🎢 Europa-Park (Rust, Alemania)</h3>
-                        <p><strong>29 junio - 1 julio</strong></p>
-                        <p>Silver Star, Voltron, Blue Fire y Rulantica. El parque más emocionante de Europa.</p>
-                        <p style="margin-top: 0.5rem;">📌 48.2751° N, 7.7259° E</p>
-                    </div>
+                <div class="country-section">
+                    <h3>🇨🇭 Suiza</h3>
+                    <div class="country-grid">
+                        <div class="route-point country-ch">
+                            <h3>💦 Cataratas del Rin (Schaffhausen) <span class="country-badge country-badge-ch">Suiza</span></h3>
+                            <p><strong>1-3 de julio</strong></p>
+                            <p>Las cascadas más potentes de Europa. Barco hasta la roca central. Castillo Laufen historic.</p>
+                            <p style="margin-top: 0.5rem;">📌 47.6829° N, 8.6169° E</p>
+                        </div>
 
-                    <div class="route-point">
-                        <h3>💦 Cataratas del Rin (Schaffhausen)</h3>
-                        <p><strong>1-3 de julio</strong></p>
-                        <p>Las cascadas más potentes de Europa. Barco hasta la roca central. Castillo Laufen historic.</p>
-                        <p style="margin-top: 0.5rem;">📌 47.6829° N, 8.6169° E</p>
-                    </div>
+                        <div class="route-point country-ch">
+                            <h3>🌊 Zúrich (Capital Suiza) <span class="country-badge country-badge-ch">Suiza</span></h3>
+                            <p><strong>3-4 de julio</strong></p>
+                            <p>Casco antiguo, Museo FIFA, paseos en barco. Cultura y modernidad a orillas del lago.</p>
+                            <p style="margin-top: 0.5rem;">📌 47.3769° N, 8.5472° E</p>
+                        </div>
 
-                    <div class="route-point">
-                        <h3>🌊 Zúrich (Capital Suiza)</h3>
-                        <p><strong>3-4 de julio</strong></p>
-                        <p>Casco antiguo, Museo FIFA, paseos en barco. Cultura y modernidad a orillas del lago.</p>
-                        <p style="margin-top: 0.5rem;">📌 47.3769° N, 8.5472° E</p>
-                    </div>
+                        <div class="route-point country-ch">
+                            <h3>❄️ Jungfraujoch (Alpes Suizos) <span class="country-badge country-badge-ch">Suiza</span></h3>
+                            <p><strong>4-5 de julio</strong></p>
+                            <p>Top of Europe a 3.454 metros. Glaciares eternos y vistas panorámicas 360°.</p>
+                            <p style="margin-top: 0.5rem;">📌 46.5469° N, 8.0739° E</p>
+                        </div>
 
-                    <div class="route-point">
-                        <h3>❄️ Jungfraujoch (Alpes Suizos)</h3>
-                        <p><strong>4-5 de julio</strong></p>
-                        <p>Top of Europe a 3.454 metros. Glaciares eternos y vistas panorámicas 360°.</p>
-                        <p style="margin-top: 0.5rem;">📌 46.5469° N, 8.0739° E</p>
-                    </div>
+                        <div class="route-point country-ch">
+                            <h3>🏔️ Lauterbrunnen (Valle de las Cascadas) <span class="country-badge country-badge-ch">Suiza</span></h3>
+                            <p><strong>4-5 de julio</strong></p>
+                            <p>72 cascadas, Trümmelbach Falls, Teleférico Männlichen. Senderismo en los Alpes.</p>
+                            <p style="margin-top: 0.5rem;">📌 46.5927° N, 8.0683° E</p>
+                        </div>
 
-                    <div class="route-point">
-                        <h3>🏔️ Lauterbrunnen (Valle de las Cascadas)</h3>
-                        <p><strong>4-5 de julio</strong></p>
-                        <p>72 cascadas, Trümmelbach Falls, Teleférico Männlichen. Senderismo en los Alpes.</p>
-                        <p style="margin-top: 0.5rem;">📌 46.5927° N, 8.0683° E</p>
-                    </div>
-
-                    <div class="route-point">
-                        <h3>🔬 CERN (Opcional sin estrés)</h3>
-                        <p><strong>Opcional (si hay reserva)</strong></p>
-                        <p>Desvío recomendado solo con 1 día extra de caravana y visita confirmada.</p>
-                        <p style="margin-top: 0.5rem;">📌 46.2330° N, 6.0559° E</p>
-                    </div>
-
-                    <div class="route-point">
-                        <h3>🚐 Malpensa (Devolución final)</h3>
-                        <p><strong>8-9 de julio</strong></p>
-                        <p>Devolución directa de autocaravana y traslado al aeropuerto para vuelo, sin última noche en Milán.</p>
-                        <p style="margin-top: 0.5rem;">📌 45.6306° N, 8.7281° E</p>
-                    </div>
-
-                    <div class="route-point">
-                        <h3>✈️ Madrid (Vuelo Regreso)</h3>
-                        <p><strong>9 de julio</strong></p>
-                        <p>Vuelo IB0664 a las 11:40. Fin de la aventura, comienzo de los recuerdos.</p>
-                        <p style="margin-top: 0.5rem;">📌 40.4168° N, 3.6278° W</p>
+                        <div class="route-point country-ch">
+                            <h3>🔬 CERN (Opcional sin estrés) <span class="country-badge country-badge-ch">Suiza</span></h3>
+                            <p><strong>Opcional (si hay reserva)</strong></p>
+                            <p>Desvío recomendado solo con 1 día extra de caravana y visita confirmada.</p>
+                            <p style="margin-top: 0.5rem;">📌 46.2330° N, 6.0559° E</p>
+                        </div>
                     </div>
                 </div>
 
@@ -322,7 +401,7 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
         // Inicializar el mapa
         const map = L.map('map').setView([46.5, 10.5], 5);
@@ -342,7 +421,8 @@
                 icon: '✈️',
                 description: 'Vuelo salida 8:50',
                 color: '#e74c3c',
-                date: '25 junio'
+                date: '25 junio',
+                country: 'España'
             },
             {
                 name: 'Milán (Llegada)',
@@ -351,7 +431,8 @@
                 icon: '🇮🇹',
                 description: 'Llegada 11:00, recogida autocaravana',
                 color: '#e74c3c',
-                date: '25-26 junio'
+                date: '25-26 junio',
+                country: 'Italia'
             },
             {
                 name: 'Val di Fassa (Dolomitas)',
@@ -360,7 +441,8 @@
                 icon: '🏔️',
                 description: 'Fun Bob, Teleféricos, Senderismo',
                 color: '#2ecc71',
-                date: '27-29 junio'
+                date: '27-29 junio',
+                country: 'Italia'
             },
             {
                 name: 'Cortina d\'Ampezzo',
@@ -369,7 +451,8 @@
                 icon: '⛷️',
                 description: 'Sorapis, Braies o Tres Cimas según el plan',
                 color: '#f39c12',
-                date: '28 junio'
+                date: '28 junio',
+                country: 'Italia'
             },
             {
                 name: 'Europa-Park (Rust)',
@@ -378,7 +461,8 @@
                 icon: '🎢',
                 description: 'Silver Star, Voltron, Rulantica',
                 color: '#2ecc71',
-                date: '29 junio - 1 julio'
+                date: '29 junio - 1 julio',
+                country: 'Alemania'
             },
             {
                 name: 'Cataratas del Rin',
@@ -387,7 +471,8 @@
                 icon: '💦',
                 description: 'Cascadas más potentes de Europa',
                 color: '#2ecc71',
-                date: '1-3 julio'
+                date: '1-3 julio',
+                country: 'Suiza'
             },
             {
                 name: 'Zúrich',
@@ -396,7 +481,8 @@
                 icon: '🏙️',
                 description: 'Casco antiguo, Museo FIFA',
                 color: '#f39c12',
-                date: '3-4 julio'
+                date: '3-4 julio',
+                country: 'Suiza'
             },
             {
                 name: 'Jungfraujoch',
@@ -405,7 +491,8 @@
                 icon: '❄️',
                 description: 'Top of Europe 3.454m',
                 color: '#3498db',
-                date: '4-5 julio'
+                date: '4-5 julio',
+                country: 'Suiza'
             },
             {
                 name: 'Lauterbrunnen',
@@ -414,7 +501,8 @@
                 icon: '🏔️',
                 description: 'Valle de las cascadas',
                 color: '#3498db',
-                date: '4-5 julio'
+                date: '4-5 julio',
+                country: 'Suiza'
             },
             {
                 name: 'CERN (Opcional)',
@@ -423,7 +511,8 @@
                 icon: '🔬',
                 description: 'Visita opcional con 1 día extra y reserva previa',
                 color: '#16a085',
-                date: 'Opcional'
+                date: 'Opcional',
+                country: 'Suiza'
             },
             {
                 name: 'Malpensa (Devolución)',
@@ -432,7 +521,8 @@
                 icon: '🚐',
                 description: 'Devolución final de autocaravana antes del vuelo',
                 color: '#3498db',
-                date: '8-9 julio'
+                date: '8-9 julio',
+                country: 'Italia'
             },
             {
                 name: 'Madrid (Regreso)',
@@ -441,7 +531,8 @@
                 icon: '✈️',
                 description: 'Vuelo regreso 11:40',
                 color: '#e74c3c',
-                date: '9 julio'
+                date: '9 julio',
+                country: 'España'
             }
         ];
 
@@ -482,7 +573,26 @@
             dashArray: '10, 6'
         }).addTo(map);
 
-        // Agregar marcadores para cada punto
+        // Preparar agrupaciones por país
+        const countryOrder = ['España', 'Italia', 'Alemania', 'Suiza'];
+        const countryFlags = {
+            'España': '🇪🇸',
+            'Italia': '🇮🇹',
+            'Alemania': '🇩🇪',
+            'Suiza': '🇨🇭'
+        };
+        const countryGroups = {};
+        const countryCounts = {};
+
+        routePoints.forEach((point) => {
+            if (!countryGroups[point.country]) {
+                countryGroups[point.country] = L.layerGroup().addTo(map);
+            }
+
+            countryCounts[point.country] = (countryCounts[point.country] || 0) + 1;
+        });
+
+        // Agregar marcadores para cada punto dentro de su país
         routePoints.forEach((point, index) => {
             const markerColor = point.color;
             
@@ -499,6 +609,7 @@
             const popupContent = `
                 <div style="font-family: Arial, sans-serif; width: 250px;">
                     <h4 style="margin: 0 0 0.5rem; color: #2c5aa0;">${point.name}</h4>
+                    <p style="margin: 0.3rem 0; font-size: 0.85rem;"><strong>País:</strong> ${point.country}</p>
                     <p style="margin: 0.3rem 0; font-size: 0.85rem;"><strong>Fecha:</strong> ${point.date}</p>
                     <p style="margin: 0.3rem 0; font-size: 0.85rem;"><strong>Descripción:</strong> ${point.description}</p>
                     <p style="margin: 0.5rem 0 0; font-size: 0.75rem; color: #666;">Día ${index + 1}</p>
@@ -508,8 +619,22 @@
             // Agregar marcador al mapa
             L.marker([point.lat, point.lng], { icon: customIcon })
                 .bindPopup(popupContent)
-                .addTo(map);
+                .addTo(countryGroups[point.country]);
         });
+
+        // Control de capas por país
+        const countryOverlays = {};
+        countryOrder.forEach((country) => {
+            if (countryGroups[country]) {
+                const label = `${countryFlags[country]} ${country} (${countryCounts[country]})`;
+                countryOverlays[label] = countryGroups[country];
+            }
+        });
+
+        L.control.layers(null, countryOverlays, {
+            collapsed: false,
+            position: 'topright'
+        }).addTo(map);
 
         // Auto-ajustar vista al mapa
         const bounds = L.latLngBounds(routeCoordinates);

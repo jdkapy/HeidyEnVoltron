@@ -20,6 +20,8 @@
                 <li><a href="presupuesto.html">Presupuesto</a></li>
                 <li><a href="vuelos.html">Vuelos</a></li>
                 <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="rutas.html">Rutas</a></li>
+                <li><a href="mundial.html">Mundial</a></li>
                 <li><a href="tareas.html">Por hacer</a></li>
             </ul>
         </nav>
@@ -222,44 +224,61 @@ Llegas → aparcas → casco histórico (45 min)
                         <p>Si quieres, ahora te hago el siguiente nivel del viaje:<br>
 👉 <strong>ruta Peschiera → Canazei con 2–3 paradas espectaculares (Dolomitas de verdad)</strong> 🏔️💥</p>
 
-                        <h4>🥇 1. Area Sosta Camper Peschiera del Garda (RECOMENDADO)</h4>
-                        <ul>
-                            <li><strong>Coordenadas:</strong> 45.4396, 10.6883</li>
-                            <li><strong>Navegación:</strong> 
-                                👉 <a href="https://waze.com/ul?ll=45.4396,10.6883&navigate=yes" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Waze</a> &nbsp;|&nbsp; 
-                                👉 <a href="https://maps.google.com/?q=45.4396,10.6883" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Google Maps</a>
-                            </li>
-                            <li><strong>Precio:</strong> ~22-24 €/24h <a href="https://www.camperservicesearch.com/schede/area-sosta-camper-peschiera-del-garda-verona-italia/" target="_blank">[camperservicesearch.com]</a></li>
-                            <li><strong>Servicios:</strong> WC, duchas (normalmente de pago), agua, vaciado y electricidad <a href="https://www.camperonline.it/sosta-camper/aree-di-sosta/italia/veneto/area-camper-peschiera/11195" target="_blank">[camperonline.it]</a></li>
-                            <li><strong>Web:</strong> <a href="https://www.areacamperpeschiera.com/en/" target="_blank" style="color: #2c5aa0; text-decoration: underline;">areacamperpeschiera.com</a></li>
-                            <li><strong>Comentario:</strong> La mejor opción: cerca del lago, grande y práctica.</li>
-                        </ul>
-
-                        <h4>🥈 2. Area Camper Lazise</h4>
-                        <ul>
-                            <li><strong>Coordenadas:</strong> 45.4574, 10.7171</li>
-                            <li><strong>Navegación:</strong> 
-                                👉 <a href="https://waze.com/ul?ll=45.4574,10.7171&navigate=yes" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Waze</a> &nbsp;|&nbsp; 
-                                👉 <a href="https://maps.google.com/?q=45.4574,10.7171" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Google Maps</a>
-                            </li>
-                            <li><strong>Precio:</strong> ~24 €/día aprox. (según horas/temporada) <a href="https://www.camperdiem.it/area-sosta/area-sosta-lazise" target="_blank">[camperdiem.it]</a></li>
-                            <li><strong>Servicios:</strong> WC, duchas, electricidad y servicios completos <a href="https://www.camperonline.it/sosta-camper/aree-di-sosta/italia/veneto/area-camper-stop-lazise/24832" target="_blank">[camperonline.it]</a></li>
-                            <li><strong>Web:</strong> <a href="https://www.areacamperlazise.it/en/" target="_blank" style="color: #2c5aa0; text-decoration: underline;">areacamperlazise.it</a></li>
-                            <li><strong>Comentario:</strong> Más tranquila, pero algo peor ubicada para paseo directo.</li>
-                        </ul>
-
-                        <h4>🥉 3. Camping Bergamini (opción cómoda pro)</h4>
-                        <ul>
-                            <li><strong>Coordenadas:</strong> 45.4533, 10.6685</li>
-                            <li><strong>Navegación:</strong> 
-                                👉 <a href="https://waze.com/ul?ll=45.4533,10.6685&navigate=yes" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Waze</a> &nbsp;|&nbsp; 
-                                👉 <a href="https://maps.google.com/?q=45.4533,10.6685" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Google Maps</a>
-                            </li>
-                            <li><strong>Precio:</strong> Más caro (tipo camping, variable por temporada)</li>
-                            <li><strong>Servicios:</strong> Baños completos, duchas incluidas, piscina, bar y acceso directo al lago <a href="https://www.camping.it/it/veneto/bergamini/" target="_blank">[camping.it]</a></li>
-                            <li><strong>Web:</strong> <a href="https://www.campingbergamini.it/it" target="_blank" style="color: #2c5aa0; text-decoration: underline;">campingbergamini.it</a></li>
-                            <li><strong>Comentario:</strong> Opción cómoda: más cara, pero muy bonita y sin complicaciones.</li>
-                        </ul>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Opción</th>
+                                        <th>Precio aprox.</th>
+                                        <th>Servicios</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lago di Garda</td>
+                                        <td>Area Sosta Camper Peschiera del Garda (recomendado)</td>
+                                        <td>~22-24 €/24h</td>
+                                        <td>WC, duchas, agua, vaciado y electricidad</td>
+                                        <td>
+                                            45.4396, 10.6883<br>
+                                            <a href="https://waze.com/ul?ll=45.4396,10.6883&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=45.4396,10.6883" target="_blank">Google Maps</a><br>
+                                            <a href="https://www.areacamperpeschiera.com/en/" target="_blank">Web</a>
+                                        </td>
+                                        <td>La mejor opción: cerca del lago, grande y práctica.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lago di Garda</td>
+                                        <td>Area Camper Lazise</td>
+                                        <td>~24 €/día</td>
+                                        <td>WC, duchas, electricidad y servicios completos</td>
+                                        <td>
+                                            45.4574, 10.7171<br>
+                                            <a href="https://waze.com/ul?ll=45.4574,10.7171&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=45.4574,10.7171" target="_blank">Google Maps</a><br>
+                                            <a href="https://www.areacamperlazise.it/en/" target="_blank">Web</a>
+                                        </td>
+                                        <td>Más tranquila, algo peor ubicada para paseo directo.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lago di Garda</td>
+                                        <td>Camping Bergamini</td>
+                                        <td>Variable (tipo camping)</td>
+                                        <td>Baños completos, duchas, piscina, bar y acceso al lago</td>
+                                        <td>
+                                            45.4533, 10.6685<br>
+                                            <a href="https://waze.com/ul?ll=45.4533,10.6685&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=45.4533,10.6685" target="_blank">Google Maps</a><br>
+                                            <a href="https://www.campingbergamini.it/it" target="_blank">Web</a>
+                                        </td>
+                                        <td>Opción cómoda: más cara, pero muy bonita y sin complicaciones.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <h4>🎯 Conclusión ultra clara (para decidir en ruta)</h4>
                         <ul>
@@ -375,82 +394,120 @@ DÍA 2 → Lago di Braies (mañana) + relax / Carezza</pre>
                         <p><strong>Opción lago alternativa:</strong> <a href="https://locosxlosviajes.com/trekking-al-lago-di-sorapis-con-ninos/" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Trekking al Lago di Sorapis con niños</a></p>
 
                         <h4>🏕️ Si hacéis Lago di Sorapis el 28 de junio, mejor dormir aquí</h4>
-                        <ul>
-                            <li><strong>🥇 Parking Passo Tre Croci (MEJOR OPCIÓN)</strong><br>
-                                Coordenadas: 46.5813, 12.2339<br>
-                                <a href="https://waze.com/ul?ll=46.5813,12.2339&navigate=yes" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Waze</a> | <a href="https://maps.google.com/?q=46.5813,12.2339" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Google Maps</a><br>
-                                Precio: Gratis / básico<br>
-                                Servicios: Sin servicios<br>
-                                👉 Mejor para salir temprano a la ruta<br>
-                                👉 Estás ya en el inicio
-                            </li>
-                            <li><strong>🥈 Camping Olympia, Cortina (más cómodo)</strong><br>
-                                Coordenadas: 46.5669, 12.1593<br>
-                                <a href="https://waze.com/ul?ll=46.5669,12.1593&navigate=yes" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Waze</a> | <a href="https://maps.google.com/?q=46.5669,12.1593" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Google Maps</a><br>
-                                Precio: ~40–60€<br>
-                                Servicios: Completo<br>
-                                👉 Más cómodo, menos práctico para madrugar
-                            </li>
-                        </ul>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Opción</th>
+                                        <th>Precio aprox.</th>
+                                        <th>Servicios</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Dolomitas (Sorapis)</td>
+                                        <td>Parking Passo Tre Croci</td>
+                                        <td>Gratis / básico</td>
+                                        <td>Sin servicios</td>
+                                        <td>
+                                            46.5813, 12.2339<br>
+                                            <a href="https://waze.com/ul?ll=46.5813,12.2339&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=46.5813,12.2339" target="_blank">Google Maps</a>
+                                        </td>
+                                        <td>Mejor para salir temprano; ya estás en el inicio de la ruta.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dolomitas (Sorapis)</td>
+                                        <td>Camping Olympia, Cortina</td>
+                                        <td>~40-60 €</td>
+                                        <td>Completo</td>
+                                        <td>
+                                            46.5669, 12.1593<br>
+                                            <a href="https://waze.com/ul?ll=46.5669,12.1593&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=46.5669,12.1593" target="_blank">Google Maps</a>
+                                        </td>
+                                        <td>Más cómodo, menos práctico para madrugar.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <h3>🏔️ DORMIR EN VAL DI FASSA (CAMPER) — RESUMEN COMPLETO</h3>
-
-                        <h4>🥇 Camping Vidor (Pozza di Fassa) → MEJOR EQUILIBRIO</h4>
-                        <ul>
-                            <li><strong>Coordenadas:</strong> 46.42057, 11.70758</li>
-                            <li><strong>Navegación:</strong> 
-                                <a href="https://waze.com/ul?ll=46.42057,11.70758&navigate=yes" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Waze</a> &nbsp;|&nbsp; 
-                                <a href="https://maps.google.com/?q=46.42057,11.70758" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Google Maps</a>
-                            </li>
-                            <li><strong>Precio:</strong> ~30–50 €/noche</li>
-                            <li><strong>Servicios:</strong> Baños + duchas, electricidad, agua + vaciado, instalaciones completas <a href="https://www.camperonline.it/sosta-camper/aree-di-sosta/val-di-fassa/126" target="_blank">[camperonline.it]</a></li>
-                            <li><strong>Lo mejor:</strong> Buen equilibrio precio + comodidad. Punto estratégico del valle.</li>
-                        </ul>
-
-                        <h4>🥈 Camping Marmolada (Canazei) → MEJOR UBICACIÓN</h4>
-                        <ul>
-                            <li><strong>Coordenadas:</strong> 46.47314, 11.77562</li>
-                            <li><strong>Navegación:</strong> 
-                                <a href="https://waze.com/ul?ll=46.47314,11.77562&navigate=yes" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Waze</a> &nbsp;|&nbsp; 
-                                <a href="https://maps.google.com/?q=46.47314,11.77562" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Google Maps</a>
-                            </li>
-                            <li><strong>Precio:</strong> ~40–60 €/noche</li>
-                            <li><strong>Servicios:</strong> Baños modernos, duchas, electricidad, camping completo <a href="https://www.fassa.com/en/accommodation/camping-marmolada" target="_blank">[fassa.com]</a></li>
-                            <li><strong>Lo mejor:</strong> Estás en Canazei (sales andando a todo). Base perfecta para Dolomitas.</li>
-                        </ul>
-
-                        <h4>🥉 Camping Catinaccio (Pozza) → TRANQUILO</h4>
-                        <ul>
-                            <li><strong>Coordenadas:</strong> 46.42611, 11.68623</li>
-                            <li><strong>Navegación:</strong> 
-                                <a href="https://waze.com/ul?ll=46.42611,11.68623&navigate=yes" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Waze</a> &nbsp;|&nbsp; 
-                                <a href="https://maps.google.com/?q=46.42611,11.68623" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Google Maps</a>
-                            </li>
-                            <li><strong>Precio:</strong> ~30–45 €/noche</li>
-                            <li><strong>Servicios:</strong> Baños + duchas, electricidad, zona tranquila <a href="https://www.catinacciorosengarten.com/en/" target="_blank">[catinacciorosengarten.com]</a></li>
-                            <li><strong>Lo mejor:</strong> Menos saturado. Muy buena opción si huyes del turismo.</li>
-                        </ul>
-
-                        <h4>🟡 EXTRA: Parking piscinas Canazei (modo práctico)</h4>
-                        <ul>
-                            <li><strong>Coordenadas:</strong> 46.4740, 11.7736</li>
-                            <li><strong>Navegación:</strong> 
-                                <a href="https://waze.com/ul?ll=46.4740,11.7736&navigate=yes" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Waze</a> &nbsp;|&nbsp; 
-                                <a href="https://maps.google.com/?q=46.4740,11.7736" target="_blank" style="color: #2c5aa0; text-decoration: underline;">Google Maps</a>
-                            </li>
-                            <li><strong>Precio:</strong> Parking → barato o gratis. Piscinas → ~8–15 €/persona</li>
-                            <li><strong>Servicios:</strong> ❌ Sin servicios camper. ✅ Baños y duchas dentro de las piscinas</li>
-                            <li><strong>Lo mejor:</strong> Muy práctico. Ubicación top.</li>
-                            <li><strong>Importante:</strong> No es área oficial → tolerado pero no garantizado. No tienes agua/vaciado de camper.</li>
-                        </ul>
-
-                        <h4>🟡 OPCIÓN GRATIS (solo emergencia): Parking Alba di Canazei</h4>
-                        <ul>
-                            <li><strong>Coordenadas:</strong> 46.4638, 11.8015</li>
-                            <li><strong>Precio:</strong> Gratis</li>
-                            <li><strong>Servicios:</strong> Sin servicios</li>
-                            <li>Solo para dormir rápido</li>
-                        </ul>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Opción</th>
+                                        <th>Precio aprox.</th>
+                                        <th>Servicios</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Val di Fassa</td>
+                                        <td>Camping Vidor (Pozza di Fassa)</td>
+                                        <td>~30-50 €/noche</td>
+                                        <td>Baños, duchas, electricidad, agua y vaciado</td>
+                                        <td>
+                                            46.42057, 11.70758<br>
+                                            <a href="https://waze.com/ul?ll=46.42057,11.70758&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=46.42057,11.70758" target="_blank">Google Maps</a>
+                                        </td>
+                                        <td>Buen equilibrio precio + comodidad. Punto estratégico.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Val di Fassa</td>
+                                        <td>Camping Marmolada (Canazei)</td>
+                                        <td>~40-60 €/noche</td>
+                                        <td>Baños modernos, duchas, electricidad, camping completo</td>
+                                        <td>
+                                            46.47314, 11.77562<br>
+                                            <a href="https://waze.com/ul?ll=46.47314,11.77562&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=46.47314,11.77562" target="_blank">Google Maps</a>
+                                        </td>
+                                        <td>Mejor ubicación: base ideal para Dolomitas.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Val di Fassa</td>
+                                        <td>Camping Catinaccio (Pozza)</td>
+                                        <td>~30-45 €/noche</td>
+                                        <td>Baños, duchas, electricidad, zona tranquila</td>
+                                        <td>
+                                            46.42611, 11.68623<br>
+                                            <a href="https://waze.com/ul?ll=46.42611,11.68623&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=46.42611,11.68623" target="_blank">Google Maps</a>
+                                        </td>
+                                        <td>Menos saturado, ideal si buscas tranquilidad.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Canazei (extra)</td>
+                                        <td>Parking piscinas Canazei</td>
+                                        <td>Parking barato/gratis + piscinas ~8-15 €/persona</td>
+                                        <td>Sin servicios camper; baños y duchas en piscinas</td>
+                                        <td>
+                                            46.4740, 11.7736<br>
+                                            <a href="https://waze.com/ul?ll=46.4740,11.7736&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=46.4740,11.7736" target="_blank">Google Maps</a>
+                                        </td>
+                                        <td>Muy práctico, pero no es área oficial.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Canazei (emergencia)</td>
+                                        <td>Parking Alba di Canazei</td>
+                                        <td>Gratis</td>
+                                        <td>Sin servicios</td>
+                                        <td>46.4638, 11.8015<br><a href="https://waze.com/ul?ll=46.4638,11.8015&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=46.4638,11.8015" target="_blank">Google Maps</a></td>
+                                        <td>Solo para dormir rápido.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <h4>⚠️ REGLA CLAVE DOLOMITAS</h4>
                         <ul>
@@ -531,6 +588,109 @@ DÍA 2 → Lago di Braies (mañana) + relax / Carezza</pre>
                             <li>Bastones de senderismo reducen presión en rodillas</li>
                             <li>Repelente de insectos (mosquitos en altura)</li>
                             <li>Capa base transpirable (sudor se enfría en montaña)</li>
+                        </ul>
+
+                        <h4>🌙 Opciones para dormir el 28 (camino a Europa-Park)</h4>
+                        <p>Estas son las mejores alternativas para dividir la ruta y llegar al parque sin hacer una tirada demasiado larga.</p>
+
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Opción</th>
+                                        <th>Precio aprox.</th>
+                                        <th>Servicios</th>
+                                        <th>Ubicación / Navegación</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lago Constanza</td>
+                                        <td>Área camper Konstanz</td>
+                                        <td>~15 €/noche</td>
+                                        <td>Básico (sin baño ni luz)</td>
+                                        <td>
+                                            47.6719, 9.1650<br>
+                                            <a href="https://waze.com/ul?ll=47.6719,9.1650&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=47.6719,9.1650" target="_blank">Google Maps</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lago Constanza</td>
+                                        <td>Área camper Lindau</td>
+                                        <td>~20 €/24h</td>
+                                        <td>Agua + vaciado</td>
+                                        <td>
+                                            47.5423, 9.7306<br>
+                                            <a href="https://waze.com/ul?ll=47.5423,9.7306&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=47.5423,9.7306" target="_blank">Google Maps</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lago Constanza</td>
+                                        <td>Camping Lindau</td>
+                                        <td>~30-50 €/noche</td>
+                                        <td>Completo (duchas, luz, lago)</td>
+                                        <td>
+                                            47.5371, 9.7299<br>
+                                            <a href="https://waze.com/ul?ll=47.5371,9.7299&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=47.5371,9.7299" target="_blank">Google Maps</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lago Constanza</td>
+                                        <td>Seecamping Bregenz</td>
+                                        <td>~39-60 €/noche</td>
+                                        <td>Completo + restaurante</td>
+                                        <td>
+                                            47.5056, 9.7121<br>
+                                            <a href="https://waze.com/ul?ll=47.5056,9.7121&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=47.5056,9.7121" target="_blank">Google Maps</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Innsbruck</td>
+                                        <td>Área Egger-Lienz (recomendada)</td>
+                                        <td>~15 €/noche</td>
+                                        <td>Parking camper grande</td>
+                                        <td>
+                                            47.2553, 11.3764<br>
+                                            <a href="https://waze.com/ul?ll=47.2553,11.3764&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=47.2553,11.3764" target="_blank">Google Maps</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Innsbruck</td>
+                                        <td>Área Innrain (centro)</td>
+                                        <td>~15 €/24h</td>
+                                        <td>Solo pernocta, sin servicios</td>
+                                        <td>
+                                            47.2620, 11.3940<br>
+                                            <a href="https://waze.com/ul?ll=47.2620,11.3940&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=47.2620,11.3940" target="_blank">Google Maps</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Innsbruck</td>
+                                        <td>Camping Innsbruck</td>
+                                        <td>~35-50 €/noche</td>
+                                        <td>Servicios completos</td>
+                                        <td>
+                                            47.2625, 11.3500<br>
+                                            <a href="https://waze.com/ul?ll=47.2625,11.3500&navigate=yes" target="_blank">Waze</a> |
+                                            <a href="https://maps.google.com/?q=47.2625,11.3500" target="_blank">Google Maps</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>🎯 Recomendación rápida</h4>
+                        <ul>
+                            <li><strong>Ruta optimizada:</strong> dormir en Lindau o Bregenz (Lago Constanza)</li>
+                            <li><strong>Ruta más barata:</strong> dormir en Innsbruck</li>
+                            <li><strong>Ruta más bonita:</strong> Lago Constanza</li>
                         </ul>
 
                         <div class="price-tag">28 de junio: ~€40-60 (teleférico, picnic, combustible)</div>
@@ -632,22 +792,93 @@ DÍA 2 → Lago di Braies (mañana) + relax / Carezza</pre>
                             <li>Bebidas: Botellas de agua gratuitas en fuentes</li>
                         </ul>
 
-                        <h4>🚐 Tarde: Traslado Directo a Cataratas del Rin (14:00-18:00)</h4>
+                        <h4>🚐 Etapa optimizada: Europa-Park → Cataratas del Rin</h4>
+                        <p><strong>Distancia/tiempo recomendado:</strong> ~140 km | ~2h - 2h 15 min de conducción</p>
+                        <p>Es una etapa corta, así que lo ideal es ir directo sin dormir entre medias.</p>
+
+                        <h4>🎯 Plan óptimo del día (recomendado)</h4>
+                        <pre>
+Salida Europa Park → conducción directa → Cataratas del Rin
+→ visita + fotos → dormir allí mismo
+                        </pre>
+
+                        <h4>📍 Cataratas del Rin (Rheinfall)</h4>
                         <ul>
-                            <li><strong>Salida Rulantica:</strong> 14:00</li>
-                            <li><strong>Ruta optimizada:</strong> Rust → Basilea → Schaffhausen</li>
-                            <li><strong>Distancia:</strong> ~180 km | Duración: 2h 30min</li>
-                            <li><strong>Parada comida:</strong> En ruta en gasolinera alemana</li>
-                            <li><strong>Llegada Cataratas:</strong> ~17:00-17:30</li>
+                            <li><strong>Coordenadas principales:</strong> 47.6775, 8.6150</li>
+                            <li><strong>Navegación:</strong> <a href="https://waze.com/ul?ll=47.6775,8.6150&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=47.6775,8.6150" target="_blank">Google Maps</a></li>
                         </ul>
 
-                        <h4>🏕️ Pernocta Primera Noche en Cataratas</h4>
+                        <h4>🏕️ Dónde dormir en Cataratas del Rin (camper)</h4>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Opción</th>
+                                        <th>Precio aprox.</th>
+                                        <th>Servicios</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Neuhausen am Rheinfall</td>
+                                        <td>Parking oficial Rheinfall (in situ)</td>
+                                        <td>~40-45 CHF</td>
+                                        <td>Muy básico; no es camping completo</td>
+                                        <td>47.6744, 8.6085<br><a href="https://waze.com/ul?ll=47.6744,8.6085&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=47.6744,8.6085" target="_blank">Google Maps</a></td>
+                                        <td>Ubicación top para amanecer junto a las cataratas; ideal para 1 noche.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Neuhausen am Rheinfall</td>
+                                        <td>Parking P4 / pernocta tolerada</td>
+                                        <td>Gratis o barato (según horario)</td>
+                                        <td>Muy básico, sin servicios camper garantizados</td>
+                                        <td>47.6760, 8.6120<br><a href="https://waze.com/ul?ll=47.6760,8.6120&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=47.6760,8.6120" target="_blank">Google Maps</a></td>
+                                        <td>Opción ahorro tipo vanlife; revisar señalización al llegar.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Schaffhausen</td>
+                                        <td>Camping Schaffhausen (Rheinwiese)</td>
+                                        <td>~30-45 CHF</td>
+                                        <td>Duchas, electricidad, entorno tranquilo junto al río</td>
+                                        <td>47.6872, 8.6562<br><a href="https://waze.com/ul?ll=47.6872,8.6562&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=47.6872,8.6562" target="_blank">Google Maps</a></td>
+                                        <td>Mejor equilibrio entre descanso, comodidad y cercanía.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Flaach</td>
+                                        <td>TCS Camping Flaach</td>
+                                        <td>~30-40 CHF</td>
+                                        <td>Camping naturaleza con servicios completos</td>
+                                        <td>47.5793, 8.5810<br><a href="https://waze.com/ul?ll=47.5793,8.5810&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=47.5793,8.5810" target="_blank">Google Maps</a></td>
+                                        <td>Muy tranquilo, pero más alejado (~20 min).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>🧠 Plan redondo recomendado</h4>
+                        <pre>
+Salida Europa Park (mañana)
+→ Llegada Cataratas (mediodía)
+→ Visita + fotos
+→ Dormir Camping Schaffhausen (recomendado)
+→ Verlas por la mañana (menos gente)
+                        </pre>
+
+                        <h4>🎯 Resumen rápido de elección</h4>
                         <ul>
-                            <li><strong>Área Camper Neuhausen am Rheinfall:</strong> Oficial</li>
-                            <li>Servicios: Electricidad, agua, desagüe</li>
-                            <li>Precio: 20-30 CHF/noche</li>
-                            <li>Ubicación: Dormir escuchando el rugido de las cascadas</li>
-                            <li><strong>💡 Beneficio:</strong> Llegar con luz, exploración rápida atardecer</li>
+                            <li><strong>Mejor comodidad:</strong> Camping Schaffhausen</li>
+                            <li><strong>Mejor ubicación:</strong> Parking oficial Rheinfall</li>
+                            <li><strong>Mejor precio:</strong> P4 (si está permitido ese día)</li>
+                        </ul>
+
+                        <h4>⚠️ Consejos clave</h4>
+                        <ul>
+                            <li>Las cataratas impresionan más al atardecer o temprano por la mañana.</li>
+                            <li>Lleva chaqueta: salpica bastante cerca de miradores y barco.</li>
+                            <li>Móvil protegido (funda o bolsa impermeable recomendada).</li>
                         </ul>
 
                         <h4>🌙 Noche</h4>
@@ -657,7 +888,7 @@ DÍA 2 → Lago di Braies (mañana) + relax / Carezza</pre>
                             <li>Descanso para mañana intenso</li>
                         </ul>
 
-                        <div class="price-tag">1 de julio: ~€70-90 (parque acuático €25-35, gasolina €30, comida €15)</div>
+                        <div class="price-tag">1 de julio: ~€70-100 (parque acuático €25-35, gasolina €30, pernocta CHF según opción)</div>
                     </div>
                 </div>
 
@@ -715,10 +946,30 @@ DÍA 2 → Lago di Braies (mañana) + relax / Carezza</pre>
                         </ul>
 
                         <h4>🏕️ Pernocta Segunda Noche Cataratas</h4>
-                        <ul>
-                            <li>Misma área camper Neuhausen (reserva por 2 noches)</li>
-                            <li>Ventaja: Ya conoces el lugar, sin prisas</li>
-                        </ul>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Opción</th>
+                                        <th>Precio aprox.</th>
+                                        <th>Servicios</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Neuhausen am Rheinfall</td>
+                                        <td>Misma área camper (2a noche)</td>
+                                        <td>20-30 CHF/noche</td>
+                                        <td>Electricidad, agua y desagüe</td>
+                                        <td>Zona cataratas del Rin (Schaffhausen)</td>
+                                        <td>Sin mover base, más cómodo y sin prisas.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <div class="price-tag">2 de julio: ~€40-50 (barco €20, comida picnic €15, entrada castillo €5)</div>
                     </div>
@@ -730,59 +981,133 @@ DÍA 2 → Lago di Braies (mañana) + relax / Carezza</pre>
                         <p>3 de julio - Hacia la capital cosmopolita</p>
                     </div>
                     <div class="day-content">
-                        <h4>🗺️ Ruta del Día</h4>
-                        <p><strong>Schaffhausen (Cataratas) → Zúrich</strong></p>
-                        <p>Distancia: ~80 km | Duración: 1h 15min</p>
+                        <h4>🗺️ Etapa optimizada: Cataratas → Zúrich → camino a Interlaken</h4>
+                        <p><strong>Objetivo del día:</strong> visitar bien Zúrich sin meter la caravana en el centro y dormir ya rumbo Alpes.</p>
 
-                        <h4>🌅 Mañana (7:00-9:00)</h4>
+                        <h4>🚐 Aparcamiento recomendado en Zúrich (camper)</h4>
+                        <p><strong>Park &amp; Ride Sihlcity (recomendado)</strong></p>
                         <ul>
-                            <li>Desayuno en camping de Cataratas</li>
-                            <li>Última mirada a las cascadas (adiós)</li>
-                            <li>Check-out y salida hacia Zúrich</li>
+                            <li><strong>Coordenadas:</strong> 47.3566, 8.5147</li>
+                            <li><strong>Navegación:</strong> <a href="https://waze.com/ul?ll=47.3566,8.5147&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=47.3566,8.5147" target="_blank">Google Maps</a></li>
+                            <li><strong>Precio:</strong> ~10-20 CHF/día (aprox.)</li>
+                            <li><strong>Servicios:</strong> centro comercial, baños y transporte público cercano</li>
                         </ul>
 
-                        <h4>🚐 Conducción Relajada (9:00-10:30)</h4>
+                        <h4>🧠 Por qué esta opción</h4>
                         <ul>
-                            <li>Ruta directa: Schaffhausen → Zúrich (ruta 13)</li>
-                            <li>Parada descanso opcional en mitad de camino</li>
-                            <li>Llegada Zúrich zona camping</li>
+                            <li>Aparas sin estrés y evitas zonas restringidas del centro.</li>
+                            <li>Conexión rápida al centro en tranvía/transporte público.</li>
+                            <li>Muy usada por viajeros camper en Zúrich.</li>
                         </ul>
 
-                        <h4>🏕️ Camping Sihlwald Zúrich</h4>
+                        <h4>🏙️ Plan rápido de Zúrich (3-5h)</h4>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Parada</th>
+                                        <th>Tiempo aprox.</th>
+                                        <th>Qué hacer</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Zúrich centro</td>
+                                        <td>Altstadt (casco histórico)</td>
+                                        <td>~2h</td>
+                                        <td>Callejuelas, río Limmat, Grossmünster y Fraumünster</td>
+                                        <td>47.3717, 8.5423<br><a href="https://waze.com/ul?ll=47.3717,8.5423&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=47.3717,8.5423" target="_blank">Google Maps</a></td>
+                                        <td>Parada principal para paseo urbano.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zúrich centro</td>
+                                        <td>Bahnhofstrasse + Lindenhof</td>
+                                        <td>~1-1,5h</td>
+                                        <td>Calle comercial y mirador clásico</td>
+                                        <td>47.3736, 8.5392<br><a href="https://waze.com/ul?ll=47.3736,8.5392&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=47.3736,8.5392" target="_blank">Google Maps</a></td>
+                                        <td>Ideal para cerrar la visita al centro.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kilchberg</td>
+                                        <td>Lindt Home of Chocolate</td>
+                                        <td>~1,5-2h</td>
+                                        <td>Museo + tienda + experiencia chocolate</td>
+                                        <td>47.3182, 8.5511<br><a href="https://waze.com/ul?ll=47.3182,8.5511&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=47.3182,8.5511" target="_blank">Google Maps</a></td>
+                                        <td>~17 CHF. Reserva anticipada recomendada.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>🌙 Dormir rumbo Alpes (clave)</h4>
+                        <p>Mejor no dormir en Zúrich para evitar perder tiempo al día siguiente.</p>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Opción</th>
+                                        <th>Precio aprox.</th>
+                                        <th>Servicios</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sarnen</td>
+                                        <td>Área Camper Sarnen (opción top)</td>
+                                        <td>~10-25 CHF</td>
+                                        <td>Área camper, entorno tranquilo, lago cercano</td>
+                                        <td>46.8937, 8.2451<br><a href="https://waze.com/ul?ll=46.8937,8.2451&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=46.8937,8.2451" target="_blank">Google Maps</a></td>
+                                        <td>Ruta intermedia perfecta para entrar en modo Alpes.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lucerna</td>
+                                        <td>Alternativa urbana</td>
+                                        <td>Más caro (variable)</td>
+                                        <td>Servicios urbanos/camping según zona</td>
+                                        <td>47.0502, 8.3093<br><a href="https://waze.com/ul?ll=47.0502,8.3093&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=47.0502,8.3093" target="_blank">Google Maps</a></td>
+                                        <td>Más turística y con más tráfico.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>🧭 Plan completo del día</h4>
+                        <pre>
+MAÑANA
+→ Salida Cataratas
+→ Llegada Zúrich
+→ Aparcar Sihlcity
+
+MEDIODÍA
+→ Casco histórico + Bahnhofstrasse
+
+TARDE
+→ Museo Lindt
+
+FINAL DEL DÍA
+→ Salir hacia Alpes
+→ Dormir Sarnen
+                        </pre>
+
+                        <h4>🎯 Día siguiente</h4>
+                        <pre>
+Sarnen → Interlaken → Lauterbrunnen → Jungfraujoch
+                        </pre>
+
+                        <h4>⚠️ Consejos clave</h4>
                         <ul>
-                            <li><strong>Ubicación:</strong> 19 km del centro, junto a naturaleza + río</li>
-                            <li><strong>Servicios:</strong> Electricidad, duchas calientes, WiFi</li>
-                            <li><strong>Precio:</strong> 45 CHF/noche</li>
-                            <li><strong>Acceso Centro:</strong> Tren S-Bahn hasta downtown (20 min)</li>
-                            <li>Check-in: 10:30-11:00</li>
+                            <li>Evitar el centro de Zúrich con camper (coste + restricciones).</li>
+                            <li>Reservar Lindt con antelación para no perder la franja buena.</li>
+                            <li>Salir de Zúrich antes de noche para llegar tranquilo a Sarnen.</li>
                         </ul>
 
-                        <h4>🌞 Tarde: Zúrich Exploración (11:00-18:00)</h4>
-                        <ul>
-                            <li><strong>11:00-12:00:</strong> Descanso/arreglarse en camping</li>
-                            <li><strong>12:00-14:00:</strong> Tren a centro de Zúrich</li>
-                            <li><strong>14:00-17:00:</strong> Exploración casual</li>
-                            <ul style="margin-left: 2rem;">
-                                <li>Bahnhofstrasse (calle comercial más famosa)</li>
-                                <li>Casco antiguo (Altstadt) - paseo libre</li>
-                                <li>Orillas del lago Zúrich (fotos)</li>
-                            </ul>
-                            <li><strong>17:00+:</strong> Regreso a camping (tren último 23:30)</li>
-                        </ul>
-
-                        <h4>🍽️ Comida en Zúrich</h4>
-                        <ul>
-                            <li>Picnic en orillas del lago (lleva desde camping)</li>
-                            <li>O restaurante típico suizo si tienes presupuesto</li>
-                        </ul>
-
-                        <h4>🌙 Noche</h4>
-                        <ul>
-                            <li>Descanso en camping</li>
-                            <li>Preparación mental para Jungfraujoch (altura) día siguiente</li>
-                        </ul>
-
-                        <div class="price-tag">3 de julio: ~€50-60 (camping €45, comida €10, transporte €5)</div>
+                        <div class="price-tag">3 de julio: ~€70-120 (parking Zúrich, transporte local, Lindt opcional y pernocta en ruta)</div>
                     </div>
                 </div>
 
@@ -793,15 +1118,54 @@ DÍA 2 → Lago di Braies (mañana) + relax / Carezza</pre>
                     </div>
                     <div class="day-content">
                         <h4>🗺️ Ruta total (4-5 de julio)</h4>
-                        <p><strong>Base Zúrich → Interlaken → Jungfraujoch → Lauterbrunnen → Zúrich</strong></p>
+                        <p><strong>Base Lauterbrunnen (Camping Jungfrau) → Jungfraujoch → Lauterbrunnen</strong></p>
 
                         <h4>🚂 Mañana del 4 de julio: Ascensión Jungfraujoch (6:00-14:00)</h4>
                         <ul>
-                            <li><strong>6:00-7:00:</strong> Desayuno temprano en camping Sihlwald</li>
-                            <li><strong>7:00-8:00:</strong> Conducción a Interlaken (1h 30min, zona de turismo activo)</li>
-                            <li><strong>8:00-9:00:</strong> Parking en Grindelwald (40 CHF) o Lauterbrunnen</li>
-                            <li><strong>9:00+:</strong> Tren de cremallera hacia Jungfraujoch (ruta escénica)</li>
+                            <li><strong>6:00-7:00:</strong> Desayuno temprano en Camping Jungfrau (Lauterbrunnen)</li>
+                            <li><strong>7:00-8:00:</strong> Paseo corto hasta estación o bus local interno</li>
+                            <li><strong>8:00-9:00:</strong> Tren Lauterbrunnen → Wengen/Kleine Scheidegg</li>
+                            <li><strong>9:00+:</strong> Tren de cremallera final hacia Jungfraujoch (ruta escénica)</li>
                         </ul>
+
+                        <h4>🚆 Horarios orientativos de tren (Lauterbrunnen → Jungfraujoch)</h4>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tramo</th>
+                                        <th>Salida orientativa</th>
+                                        <th>Llegada orientativa</th>
+                                        <th>Duración aprox.</th>
+                                        <th>Nota</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lauterbrunnen → Kleine Scheidegg</td>
+                                        <td>08:00</td>
+                                        <td>09:10</td>
+                                        <td>~1h 10 min</td>
+                                        <td>Con transbordo según horario del día.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kleine Scheidegg → Jungfraujoch</td>
+                                        <td>09:15</td>
+                                        <td>09:50</td>
+                                        <td>~35 min</td>
+                                        <td>Tren de cremallera panorámico final.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jungfraujoch → Lauterbrunnen (vuelta)</td>
+                                        <td>12:30-13:00</td>
+                                        <td>14:10-14:45</td>
+                                        <td>~1h 40 min</td>
+                                        <td>Ideal para volver con margen y comer abajo.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p><strong>Tip:</strong> revisa horario real en SBB/Jungfrau Railway el día anterior porque puede variar por temporada y clima.</p>
 
                         <h4>❄️ En Jungfraujoch (3.454 m de altitud) - 9:30-12:00</h4>
                         <ul>
@@ -821,10 +1185,133 @@ DÍA 2 → Lago di Braies (mañana) + relax / Carezza</pre>
                             <li><strong>Coste:</strong> ~100-120 CHF/persona (tren ida-vuelta + acceso Jungfraujoch)</li>
                         </ul>
 
+                        <h4>🟢 Alternativas a Jungfraujoch (calidad/precio)</h4>
+                        <p>Si queréis ajustar presupuesto sin perder experiencia alpina, estas alternativas funcionan muy bien.</p>
+
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Alternativa</th>
+                                        <th>Precio aprox.</th>
+                                        <th>Qué ofrece</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Kleine Scheidegg (top real)</td>
+                                        <td>~60-90 CHF</td>
+                                        <td>Misma zona alpina, vistas brutales del Eiger, paseos fáciles</td>
+                                        <td>46.5847, 7.9630<br><a href="https://waze.com/ul?ll=46.5847,7.9630&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=46.5847,7.9630" target="_blank">Google Maps</a></td>
+                                        <td>La mejor alternativa calidad/precio a Jungfraujoch.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>First Cliff Walk (Grindelwald)</td>
+                                        <td>~60-80 CHF</td>
+                                        <td>Pasarela colgada, vistas potentes y actividades outdoor</td>
+                                        <td>46.6595, 8.0380<br><a href="https://waze.com/ul?ll=46.6595,8.0380&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=46.6595,8.0380" target="_blank">Google Maps</a></td>
+                                        <td>Más aventura y adrenalina que Jungfrau clásico.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Murren (pueblo sin coches)</td>
+                                        <td>~20-40 CHF transporte</td>
+                                        <td>Vistas directas, tranquilidad y ambiente alpino auténtico</td>
+                                        <td>46.5595, 7.8920<br><a href="https://waze.com/ul?ll=46.5595,7.8920&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=46.5595,7.8920" target="_blank">Google Maps</a></td>
+                                        <td>Muy equilibrado para disfrutar sin turismo masivo.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Teleférico Mannlichen (ruta top)</td>
+                                        <td>~40-60 CHF</td>
+                                        <td>Vistas Eiger/Monch/Jungfrau + sendero panorámico fácil</td>
+                                        <td>Base Wengen: 46.6059, 7.9210<br><a href="https://waze.com/ul?ll=46.6059,7.9210&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=46.6059,7.9210" target="_blank">Google Maps</a><br>Teleférico: 46.6064, 7.9221</td>
+                                        <td>Excelente calidad/precio y encaja perfecto con Kleine Scheidegg.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Harder Kulm (bonus)</td>
+                                        <td>~30-40 CHF</td>
+                                        <td>Mirador rápido y espectacular con poco esfuerzo</td>
+                                        <td>46.7105, 7.8663<br><a href="https://waze.com/ul?ll=46.7105,7.8663&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=46.7105,7.8663" target="_blank">Google Maps</a></td>
+                                        <td>Ideal como plan corto o cierre de tarde.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>📊 Comparación rápida</h4>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Opción</th>
+                                        <th>Precio</th>
+                                        <th>Experiencia</th>
+                                        <th>¿Merece la pena?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Jungfraujoch</td>
+                                        <td>~100-120 CHF por persona</td>
+                                        <td>Top Europa / glaciar</td>
+                                        <td>Sí, pero es la opción más cara</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kleine Scheidegg</td>
+                                        <td>~60-90 CHF</td>
+                                        <td>Montaña pura</td>
+                                        <td>Mejor calidad/precio</td>
+                                    </tr>
+                                    <tr>
+                                        <td>First Cliff Walk</td>
+                                        <td>~60-80 CHF</td>
+                                        <td>Aventura panorámica</td>
+                                        <td>Muy divertida</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Murren</td>
+                                        <td>~20-40 CHF</td>
+                                        <td>Alpes auténticos</td>
+                                        <td>Muy recomendable</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mannlichen</td>
+                                        <td>~40-60 CHF</td>
+                                        <td>Panorámica + sendero hasta Kleine Scheidegg</td>
+                                        <td>Muy recomendable (mejor experiencia/precio)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>🎯 Plan alternativo recomendado (2 días)</h4>
+                        <pre>
+DÍA 1 → Kleine Scheidegg (tranquilo + vistas)
+DÍA 2 → Lauterbrunnen + Trümmelbach + Murren
+                        </pre>
+
+                        <h4>🚠 Plan alternativo extra (Mannlichen + Kleine Scheidegg)</h4>
+                        <pre>
+MAÑANA
+→ Lauterbrunnen → tren a Wengen (~15 min)
+→ Teleférico Wengen-Mannlichen (~10 min)
+
+MEDIODÍA
+→ Panoramic Trail Mannlichen → Kleine Scheidegg (1h30-2h, fácil)
+
+TARDE
+→ Tren de vuelta a Lauterbrunnen
+                        </pre>
+                        <ul>
+                            <li>Si buscáis equilibrio coste/experiencia, este plan compite directamente con Jungfraujoch.</li>
+                            <li>Llevar zapatillas cómodas, agua y protección solar.</li>
+                        </ul>
+
                         <h4>🌅 Tarde del 4 de julio: Lauterbrunnen (12:00-18:00)</h4>
                         <ul>
                             <li>Descenso a Lauterbrunnen (valle de 72 cascadas)</li>
-                            <li>Parking Camping Jungfrau Valley (excelente)</li>
+                            <li>Regreso al Camping Jungfrau para descanso sin mover la autocaravana</li>
                             <li>Paseo por cascada Staubbach (agua suspendida que no toca suelo)</li>
                             <li>Comida casual, descanso tras montaña</li>
                             <li>Cena temprano en camping</li>
@@ -861,92 +1348,167 @@ DÍA 2 → Lago di Braies (mañana) + relax / Carezza</pre>
                             <li>Si regresas: conducción ~1h 30min</li>
                         </ul>
 
-                        <h4>🏕️ Pernoctas</h4>
+                        <h4>🏕️ Dónde dormir en Interlaken / Lauterbrunnen (camper)</h4>
+                        <p>En esta zona dormir bien marca mucho la experiencia. Prioridad: comodidad real y logística fácil para Jungfraujoch y el valle.</p>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Opción</th>
+                                        <th>Precio aprox.</th>
+                                        <th>Servicios</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lauterbrunnen</td>
+                                        <td>Camping Jungfrau (mejor opción)</td>
+                                        <td>~40-70 CHF</td>
+                                        <td>Baños top, duchas cuidadas, electricidad, restaurante y mini-supermercado</td>
+                                        <td>46.5926, 7.9098<br><a href="https://waze.com/ul?ll=46.5926,7.9098&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=46.5926,7.9098" target="_blank">Google Maps</a></td>
+                                        <td>La mejor inversión: ubicación brutal, descanso real y acceso fácil a tren/teleférico.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lago Brienz</td>
+                                        <td>Camping Aaregg (relax total)</td>
+                                        <td>~35-60 CHF</td>
+                                        <td>Baños impecables, duchas, parcelas amplias, lago para baño</td>
+                                        <td>46.7319, 8.0301<br><a href="https://waze.com/ul?ll=46.7319,8.0301&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=46.7319,8.0301" target="_blank">Google Maps</a></td>
+                                        <td>Muy tranquilo y cómodo; requiere moverse en coche al valle (20-25 min).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interlaken</td>
+                                        <td>Camping Manor Farm (equilibrado)</td>
+                                        <td>~30-55 CHF</td>
+                                        <td>Servicios completos, acceso al lago y buena logística</td>
+                                        <td>46.6982, 7.8666<br><a href="https://waze.com/ul?ll=46.6982,7.8666&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=46.6982,7.8666" target="_blank">Google Maps</a></td>
+                                        <td>Muy práctico, aunque menos impacto visual que Lauterbrunnen.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>⚠️ Opciones a evitar</h4>
                         <ul>
-                            <li><strong>Camping Jungfrau Valley:</strong> Lauterbrunnen</li>
-                            <li>Servicios completos: electricidad, agua, sanitarios, WiFi</li>
-                            <li>Precio: ~45 CHF/noche</li>
-                            <li><strong>Atmosfera:</strong> Dormir rodeado de Alpes es mágico</li>
+                            <li>Parking libre/no oficial en Lauterbrunnen: hay multas y muchas zonas sin pernocta permitida.</li>
+                            <li>Dormir fuera de camping en este valle suele salir mal por controles y falta de servicios.</li>
                         </ul>
 
-                        <div class="price-tag">4-5 de julio: ~€200-240 (Jungfraujoch €110-120, camping €90, Trümmelbach €12, transporte €20)</div>
+                        <h4>🎯 Recomendación para este viaje</h4>
+                        <p><strong>Opción ideal:</strong> 2 noches en Camping Jungfrau, sin mover la autocaravana durante las visitas principales.</p>
+
+                        <h4>🧭 Plan perfecto (4-5 julio)</h4>
+                        <pre>
+DÍA 1 → llegada desde Zúrich → camping Jungfrau
+DÍA 2 → Jungfraujoch
+DÍA 3 → Lauterbrunnen + cascadas
+                        </pre>
+
+                        <h4>🧠 Consejo pro</h4>
+                        <ul>
+                            <li>Deja la caravana parada y usa transporte público/local: funciona muy bien en todo el valle.</li>
+                            <li>Aparcar en zonas de montaña es limitado; moverte sin camper te ahorra tiempo y estrés.</li>
+                        </ul>
+
+                        <div class="price-tag">4-5 de julio: ~€220-320 (Jungfraujoch €110-120, camping 2 noches CHF según opción, Trümmelbach + transporte local)</div>
                     </div>
                 </div>
 
                 <div class="day-card">
                     <div class="day-header">
-                        <h2>6 de julio: Preparación y Logística para Milán</h2>
-                        <p>6 de julio - Día flexible antes del cierre</p>
+                        <h2>6 de julio: Alpes → Bérgamo</h2>
+                        <p>6 de julio - Etapa de transición larga con llegada cómoda a Italia</p>
                     </div>
                     <div class="day-content">
-                        <h4>🗺️ Ubicación Base</h4>
-                        <p><strong>Lauterbrunnen o Zúrich (según donde hayas dormido el 5 de julio)</strong></p>
+                        <h4>🧭 Ruta del día</h4>
+                        <pre>
+Lauterbrunnen → Interlaken → Gotardo → Lugano → Bérgamo
+                        </pre>
+                        <p><strong>Duración orientativa:</strong> ~5-6 horas (sin contar paradas largas).</p>
 
-                        <h4>📋 Opciones del 6 de julio</h4>
-
-                        <h4>✅ Opción A: Descanso Completo en Lauterbrunnen</h4>
+                        <h4>⚠️ Clave de conducción</h4>
                         <ul>
-                            <li>Desayuno relajado del lado alpino</li>
-                            <li>Lavar ropa en camping (importante)</li>
-                            <li>Descanso completo (cuerpo agotado)</li>
-                            <li>Paseo suave opcional</li>
-                            <li>Salida tarde hacia Milán (~2h conducción)</li>
+                            <li><strong>Mejor opción:</strong> Paso del Gotardo (si condiciones y tráfico lo permiten).</li>
+                            <li><strong>Alternativa:</strong> Túnel del Gotardo si vais justos de tiempo.</li>
+                            <li>El puerto del Gotardo merece mucho la pena por paisaje y experiencia.</li>
                         </ul>
 
-                        <h4>✅ Opción B: Regreso a Zúrich + Exploración Final</h4>
+                        <h4>🛌 Dormir en Bérgamo</h4>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Opción</th>
+                                        <th>Precio aprox.</th>
+                                        <th>Servicios</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Bérgamo</td>
+                                        <td>Area Sosta Bergamo (recomendada)</td>
+                                        <td>~10-20 €</td>
+                                        <td>Agua, vaciado, zona tranquila y preparada para campers</td>
+                                        <td>45.6966, 9.6776<br><a href="https://waze.com/ul?ll=45.6966,9.6776&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.6966,9.6776" target="_blank">Google Maps</a></td>
+                                        <td>Mejor equilibrio para vuestro viaje: barata, cómoda y muy práctica para Città Alta.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bérgamo</td>
+                                        <td>Camping Città dei Mille</td>
+                                        <td>~30-45 €</td>
+                                        <td>Duchas, electricidad, supermercado/restaurante y parcelas amplias</td>
+                                        <td>45.7083, 9.6325<br><a href="https://waze.com/ul?ll=45.7083,9.6325&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.7083,9.6325" target="_blank">Google Maps</a></td>
+                                        <td>Más cómodo para descansar bien tras la etapa de Alpes, pero más caro.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bérgamo</td>
+                                        <td>Parking Palazzo dello Sport (plan B)</td>
+                                        <td>Barato o gratis (según zona)</td>
+                                        <td>Sin servicios camper garantizados</td>
+                                        <td>45.7070, 9.6700<br><a href="https://waze.com/ul?ll=45.7070,9.6700&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.7070,9.6700" target="_blank">Google Maps</a></td>
+                                        <td>Solo para 1 noche rápida si las áreas principales están llenas.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lago d'Iseo (combinada)</td>
+                                        <td>Área tranquila zona Iseo</td>
+                                        <td>Variable</td>
+                                        <td>Entorno relax; depende del punto elegido</td>
+                                        <td>45.6594, 10.0507<br><a href="https://waze.com/ul?ll=45.6594,10.0507&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.6594,10.0507" target="_blank">Google Maps</a></td>
+                                        <td>Buena opción escénica, pero a ~40 min de Bérgamo.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>🎯 Resumen final</h4>
                         <ul>
-                            <li>Si dormiste en Lauterbrunnen: regresa a Zúrich (1h 30min)</li>
-                            <li>Mañana: Exploración de lo que faltó (Museo FIFA, Casco Antiguo relajado)</li>
-                            <li>Comida especial: Restaurante suizo o picnic final</li>
-                            <li>Tarde: Descanso camping, salida nocturna a Milán</li>
+                            <li><strong>Mejor opción global:</strong> Area Sosta Bergamo</li>
+                            <li><strong>Más confort:</strong> Camping Città dei Mille</li>
+                            <li><strong>Plan B rápido:</strong> Parking Palazzo dello Sport</li>
+                            <li><strong>Relax extra:</strong> dormir en zona Iseo</li>
                         </ul>
 
-                        <h4>✅ Opción C: Híbrida (Recomendada)</h4>
-                        <ul>
-                            <li>Mañana: Descanso + tareas (lavar ropa, limpiar autocaravana)</li>
-                            <li>Mediodía: Comida relajada</li>
-                            <li>Tarde: Conducción lenta hacia Milán (~130 km)</li>
-                            <li>Llegada Milán: 18:00-19:00</li>
-                        </ul>
+                        <h4>💡 Consejo pro</h4>
+                        <pre>
+Noche 1 y 2 en la misma base (Area Sosta)
+→ moveros en bus/funicular
+→ evitad entrar al centro en camper
+                        </pre>
 
-                        <h4>🧹 Tareas importantes del 6 de julio</h4>
-                        <ul>
-                            <li><strong>Autocaravana:</strong> Limpieza profunda (la devuelves el día 14)</li>
-                            <ul style="margin-left: 2rem;">
-                                <li>Pisos barrer/aspirar</li>
-                                <li>Baño/cocina limpiar</li>
-                                <li>Ropa de camping guardar</li>
-                                <li>Equipaje organizar para hotel</li>
-                            </ul>
-                            <li><strong>Recuerdos:</strong> Compilar fotos y videos de 15 días</li>
-                            <li><strong>Documentos:</strong> Pasaportes, dinero, tarjetas revisar</li>
-                            <li><strong>Combustible:</strong> ¿Lleno o casi vacío para devolución?</li>
-                        </ul>
+                        <h4>🌇 Tarde light en Bérgamo</h4>
+                        <pre>
+Llegada → instalar camper
+→ subir a Citta Alta
+→ paseo + cena + atardecer
+                        </pre>
 
-                        <h4>🚗 Conducción hacia Milán (Tarde)</h4>
-                        <ul>
-                            <li><strong>Si sales Lauterbrunnen:</strong> Ruta directa hacia sur (~2h)</li>
-                            <li><strong>Si sales Zúrich:</strong> Ruta más rápida hacia Berna/Gotthard (~1h 30min)</li>
-                            <li><strong>Parada comida:</strong> En ruta</li>
-                            <li><strong>Llegada estimada:</strong> 18:00-20:00 en Milán</li>
-                        </ul>
-
-                        <h4>🏕️ Pernocta noche del 6 de julio</h4>
-                        <ul>
-                            <li>Opción A: Dormir en camping suizo (último CHF)</li>
-                            <li>Opción B: Conducir toda la noche a Milán (cansador)</li>
-                            <li>Opción C: Hotel Milán otra noche si tienes presupuesto</li>
-                        </ul>
-
-                        <h4>💡 Consejos Finales</h4>
-                        <ul>
-                            <li>Disfruta el descanso del día 13 (15 días de adrenalina)</li>
-                            <li>No corras, viaje relajado</li>
-                            <li>Foto grupal en camping/Jungfrau (último recuerdo)</li>
-                            <li>Reflexiona: "15 días que cambiaron nuestras vidas"</li>
-                        </ul>
-
-                        <div class="price-tag">6 de julio: ~€30-50 (camping/hotel opcional €30-40, comida en ruta €15-20)</div>
+                        <div class="price-tag">6 de julio: ~€60-110 (combustible + peajes + area sosta + cena)</div>
                     </div>
                 </div>
 
@@ -988,67 +1550,96 @@ DÍA 2 → Lago di Braies (mañana) + relax / Carezza</pre>
 
                 <div class="day-card">
                     <div class="day-header">
-                        <h2>7 de julio: Regreso a Milán</h2>
-                        <p>7 de julio - Vuelta y últimas noches</p>
+                        <h2>7 de julio: Lago d'Iseo + Bérgamo</h2>
+                        <p>7 de julio - Día completo entre lago y cierre urbano en Citta Alta</p>
                     </div>
                     <div class="day-content">
-                        <h4>🗺️ Conducción Final</h4>
-                        <p><strong>De Lauterbrunnen/Zúrich/Cataratas → Milán</strong></p>
-                        <p>Distancia: ~280-330 km | Duración: 4-5 horas</p>
+                        <h4>🌊 Mañana: Lago d'Iseo</h4>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parada</th>
+                                        <th>Ubicación / Navegación</th>
+                                        <th>Tiempo aprox.</th>
+                                        <th>Qué hacer</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Iseo pueblo</td>
+                                        <td>45.6594, 10.0507<br><a href="https://waze.com/ul?ll=45.6594,10.0507&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.6594,10.0507" target="_blank">Google Maps</a></td>
+                                        <td>2-3h</td>
+                                        <td>Paseo por el lago, casco histórico pequeño y tomar algo</td>
+                                        <td>Alternativa más tranquila y auténtica que Como.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Monte Isola (opcional)</td>
+                                        <td>45.7120, 10.0820<br><a href="https://waze.com/ul?ll=45.7120,10.0820&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.7120,10.0820" target="_blank">Google Maps</a></td>
+                                        <td>1-2h extra</td>
+                                        <td>Ferry corto + paseo rápido</td>
+                                        <td>Solo si apetece y vais bien de tiempo.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                        <h4>🚐 Ruta de Regreso (consejo estratégico)</h4>
-                        <ul>
-                            <li><strong>Si sales de Lauterbrunnen:</strong> Ruta sur hacia Berna → Gotthard → Italia</li>
-                            <li><strong>Si sales de Zúrich:</strong> Ruta Zúrich → Lugano → Milán</li>
-                            <li><strong>Si sales de Cataratas:</strong> Ruta Basilea → Jura → Lyon → Milán</li>
-                            <li><strong>Parada comida:</strong> En ruta, descanso 1 hora</li>
-                            <li><strong>Llegada estimada Malpensa:</strong> 14:00-16:00</li>
-                        </ul>
+                        <h4>🏙️ Tarde: Bérgamo completo</h4>
+                        <div class="table-responsive">
+                            <table class="sleep-options-table">
+                                <thead>
+                                    <tr>
+                                        <th>Zona</th>
+                                        <th>Ubicación</th>
+                                        <th>Qué ver</th>
+                                        <th>Nota</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Citta Alta</td>
+                                        <td>45.7040, 9.6680<br><a href="https://waze.com/ul?ll=45.7040,9.6680&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.7040,9.6680" target="_blank">Google Maps</a></td>
+                                        <td>Plaza Vecchia y calles medievales</td>
+                                        <td>Imprescindible</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Murallas venecianas</td>
+                                        <td>45.7030, 9.6660<br><a href="https://waze.com/ul?ll=45.7030,9.6660&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.7030,9.6660" target="_blank">Google Maps</a></td>
+                                        <td>Paseo panorámico</td>
+                                        <td>Vistas top de la ciudad</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Catedral + Capilla Colleoni</td>
+                                        <td>45.7037, 9.6639<br><a href="https://waze.com/ul?ll=45.7037,9.6639&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.7037,9.6639" target="_blank">Google Maps</a></td>
+                                        <td>Parada cultural/histórica</td>
+                                        <td>Muy céntrico</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mirador final</td>
+                                        <td>45.7050, 9.6650<br><a href="https://waze.com/ul?ll=45.7050,9.6650&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.7050,9.6650" target="_blank">Google Maps</a></td>
+                                        <td>Atardecer</td>
+                                        <td>Cierre perfecto del día</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Funicular (opcional)</td>
+                                        <td>45.6906, 9.6691<br><a href="https://waze.com/ul?ll=45.6906,9.6691&navigate=yes" target="_blank">Waze</a> | <a href="https://maps.google.com/?q=45.6906,9.6691" target="_blank">Google Maps</a></td>
+                                        <td>Subida cómoda a la parte alta</td>
+                                        <td>~2-3 €</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                        <h4>🚐 Devolución Indie Campers</h4>
-                        <ul>
-                            <li><strong>Ubicación:</strong> Milan Malpensa (Ferno)</li>
-                            <li><strong>Horario:</strong> 14:00-15:30</li>
-                            <li><strong>Procedimiento:</strong></li>
-                            <ul style="margin-left: 2rem;">
-                                <li>Indicador de nivel carburante: Full (rellenar antes si es necesario)</li>
-                                <li>Limpieza básica: Barrido, aireado, sanitarios vaciados</li>
-                                <li>Acta de devolución con fotos de estado</li>
-                                <li>Deposito de fianza: reembolso en 2-3 semanas</li>
-                            </ul>
-                            <li>Tiempo estimado: 30-45 minutos</li>
-                        </ul>
+                        <h4>🧠 Plan completo del día</h4>
+                        <pre>
+Mañana → Lago d'Iseo
+Comida → allí o en Bérgamo
+Tarde → Citta Alta completa
+Cena → despedida del viaje
+                        </pre>
 
-                        <h4>🚕 Transporte a Hotel</h4>
-                        <ul>
-                            <li><strong>Desde Malpensa → BB Hotels (San Siro):</strong> ~35-50€ en taxi (25 min)</li>
-                            <li>Alternativa económica: Malpensa Express (~13€) + metro</li>
-                            <li>Check-in hotel: 16:00-17:30</li>
-                        </ul>
-
-                        <h4>🏨 BB Hotels Aparthotel Visconti</h4>
-                        <ul>
-                            <li><strong>Dirección:</strong> Via Gulli 1, San Siro, 20147 Milán</li>
-                            <li>Habitaciones pre-reservadas para 5 personas (2 noches: 7-8 y 8-9 julio)</li>
-                            <li>Servicios: WiFi, aire acondicionado, desayuno</li>
-                        </ul>
-
-                        <h4>🌞 Tarde/noche del 7 de julio</h4>
-                        <ul>
-                            <li><strong>17:00-18:00:</strong> Descanso en hotel</li>
-                            <li><strong>18:00+:</strong> Paseo/cena relajada en zona San Siro o centro</li>
-                            <li>Comida especial para celebrar los 15 días</li>
-                        </ul>
-
-                        <h4>💡 Tareas finales del 7 de julio</h4>
-                        <ul>
-                            <li>Recopilar todas las fotos/videos del viaje</li>
-                            <li>Reflexionar en familia sobre los mejores momentos</li>
-                            <li>Guardar facturas/recibos para contabilidad</li>
-                            <li>Descanso prioritario antes del vuelo matinal</li>
-                        </ul>
-
-                        <div class="price-tag">7 de julio: ~€80-120 (gasolina €40, taxi €40-50, cena €30)</div>
+                        <div class="price-tag">7 de julio: ~€70-130 (combustible, parking, comidas y extras opcionales)</div>
                     </div>
                 </div>
 

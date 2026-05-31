@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundial 2026 - Heidy en Voltron</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ─── Badges ─────────────────────────────────────── */
+        .badge-esp   { display:inline-block; padding:.15rem .5rem; border-radius:20px; font-size:.75rem; font-weight:700; background:#c60b1e; color:#fff; }
+        .badge-esp2  { display:inline-block; padding:.15rem .5rem; border-radius:20px; font-size:.75rem; font-weight:700; background:#f1bf00; color:#333; }
+        .badge-ale   { display:inline-block; padding:.15rem .5rem; border-radius:20px; font-size:.75rem; font-weight:700; background:#000; color:#ffcc00; }
+        .badge-arg   { display:inline-block; padding:.15rem .5rem; border-radius:20px; font-size:.75rem; font-weight:700; background:#74acdf; color:#fff; }
+        .badge-bra   { display:inline-block; padding:.15rem .5rem; border-radius:20px; font-size:.75rem; font-weight:700; background:#009c3b; color:#fedf00; }
+        .badge-fra   { display:inline-block; padding:.15rem .5rem; border-radius:20px; font-size:.75rem; font-weight:700; background:#002395; color:#fff; }
+        .badge-eng   { display:inline-block; padding:.15rem .5rem; border-radius:20px; font-size:.75rem; font-weight:700; background:#012169; color:#fff; }
+        .badge-por   { display:inline-block; padding:.15rem .5rem; border-radius:20px; font-size:.75rem; font-weight:700; background:#006600; color:#ff0000; }
+        .badge-tbd   { display:inline-block; padding:.15rem .5rem; border-radius:20px; font-size:.75rem; font-weight:700; background:#999; color:#fff; }
+
+        /* ─── Day blocks ─────────────────────────────────── */
+        .match-day { margin-bottom: 2rem; }
+        .match-day-header {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding: .6rem 1rem;
+            background: linear-gradient(90deg, #464feb22, transparent);
+            border-left: 4px solid #464feb;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: .6rem;
+        }
+        .match-day-header .md-date { font-size: 1rem; font-weight: 700; color: #464feb; }
+        .match-day-header .md-phase { font-size: .8rem; color: #666; }
+        .match-day-header .md-trip { font-size: .78rem; color: #888; font-style: italic; }
+
+        .match-day.featured-day .match-day-header {
+            background: linear-gradient(90deg, #c60b1e22, transparent);
+            border-left-color: #c60b1e;
+        }
+        .match-day.featured-day .md-date { color: #c60b1e; }
+
+        /* ─── Match rows ─────────────────────────────────── */
+        table.matches-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+        table.matches-table th { background:#f5f5f5; border:1px solid #e6e6e6; padding:.45rem .6rem; text-align:left; }
+        table.matches-table td { border:1px solid #e6e6e6; padding:.45rem .6rem; vertical-align: middle; }
+        table.matches-table tr:hover td { background: #f5f7ff; }
+
+        tr.highlight-spain td { background: #fff0f0 !important; font-weight: 600; }
+        tr.highlight-spain:hover td { background: #ffe0e0 !important; }
+        tr.highlight-ger td { background: #fffff0 !important; }
+
+        /* ─── Summary cards ──────────────────────────────── */
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .summary-card { padding: 1rem 1.2rem; border-radius: 10px; border: 1px solid #e6e6e6; }
+        .summary-card.card-esp { border-left: 5px solid #c60b1e; background: #fff5f5; }
+        .summary-card.card-ale { border-left: 5px solid #000; background: #fffff5; }
+        .summary-card.card-info { border-left: 5px solid #464feb; background: #f5f7ff; }
+        .summary-card h4 { margin: 0 0 .5rem; font-size: .95rem; }
+        .summary-card ul { margin: 0; padding-left: 1.2rem; font-size: .85rem; }
+        .summary-card li { margin-bottom: .3rem; }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: .4rem .8rem;
+            background: #f5f5f5;
+            border-radius: 8px;
+            margin: 1.5rem 0 .75rem;
+            border: 1px solid #e6e6e6;
+        }
+
+        .legend-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            padding: .75rem 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #e6e6e6;
+            margin-bottom: 1.5rem;
+            font-size: .82rem;
+        }
+
+        .md-time { font-size: .75rem; color: #c60b1e; font-weight: 600; }
+        .bracket-esp { background: #fff8f8; border: 1px solid #e8c0c0; border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: 1.5rem; }
+        .bracket-esp > h3 { font-size: .95rem; color: #c60b1e; margin: 0 0 .4rem; }
+        .bracket-esp > p { font-size: .82rem; color: #666; margin: 0 0 .75rem; }
+        .bracket-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+        .bracket-card { background: #fff; border: 1px solid #e6e6e6; border-radius: 6px; padding: .75rem 1rem; font-size: .83rem; }
+        .bracket-card.card-1h { border-left: 4px solid #c60b1e; }
+        .bracket-card.card-2h { border-left: 4px solid #f1bf00; }
+        .bracket-card h5 { margin: 0 0 .4rem; font-size: .87rem; }
+        .bracket-card ul { margin: 0; padding-left: 1.1rem; }
+        .bracket-card li { margin-bottom: .35rem; line-height: 1.4; }
+        @media (max-width: 650px) { .bracket-row { grid-template-columns: 1fr; } }
+        @media (max-width: 700px) {
+            table.matches-table { font-size: .76rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>🚐 Heidy en Voltron</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="itinerario.html">Itinerario</a></li>
+                <li><a href="actividades.html">Actividades</a></li>
+                <li><a href="alojamientos.html">Alojamientos</a></li>
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="vuelos.html">Vuelos</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="rutas.html">Rutas</a></li>
+                <li><a href="mundial.html">Mundial</a></li>
+                <li><a href="tareas.html">Por hacer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>⚽ Mundial 2026 — Partidos durante el viaje</h1>
+                <p>Calendario de partidos del 25 de junio al 9 de julio mientras estamos de ruta</p>
+            </div>
+        </section>
+
+        <section class="page-content">
+            <div class="container">
+
+                <!-- ══ RESUMEN RÁPIDO ══════════════════════════════ -->
+                <div class="summary-grid">
+                    <div class="summary-card card-esp">
+                        <h4>🇪🇸 Partidos de España durante el viaje</h4>
+                        <ul>
+                            <li><strong>26 jun</strong> — Uruguay 🆚 <strong>España</strong> — Grupo H, jornada 3<br><small>Estadio Chivas, Guadalajara · mientras estamos en Dolomitas → Parada intermedia</small></li>
+                            <li><strong>2 jul</strong> — Dieciseisavos: <strong>1H</strong> vs 2J <em>(si España 1ª del grupo)</em><br><small>SoFi Stadium, Los Ángeles · estaremos en Europa-Park</small></li>
+                            <li><strong>3 jul</strong> — Dieciseisavos: 1J vs <strong>2H</strong> <em>(si España 2ª del grupo)</em><br><small>Hard Rock Stadium, Miami · estaremos en Europa-Park/Rhine</small></li>
+                            <li><strong>6 jul</strong> — Octavos <em>(si 1H, ganó dieciseisavos)</em>: vs 2K/2L (Por./Ing.)<br><small>AT&amp;T Stadium, Dallas · ⏰ 23:00 ó 02:00 h España</small></li>
+                            <li><strong>7 jul</strong> — Octavos <em>(si 2H, ganó dieciseisavos)</em>: vs 2D/2G (USA/Bél.)<br><small>Atlanta · ⏰ 22:00 ó 01:00 h España</small></li>
+                        </ul>
+                    </div>
+                    <div class="summary-card card-ale">
+                        <h4>🇩🇪 Alemania — Jornada 3 durante el viaje</h4>
+                        <ul>
+                            <li><strong>25 jun</strong> — Ecuador 🆚 <strong>Alemania</strong> — Grupo E, jornada 3<br><small>MetLife Stadium, Nueva Jersey · estamos en Dolomitas</small></li>
+                            <li><strong>29 jun</strong> — Dieciseisavos (si 1E): 1E vs 3A/B/C/D/F<br><small>Boston · estaremos en tránsito Europa-Park → Rheinfall</small></li>
+                            <li><strong>30 jun</strong> — Dieciseisavos (si 2E): 2E vs 2I<br><small>Dallas · estaremos en Rheinfall</small></li>
+                        </ul>
+                    </div>
+                    <div class="summary-card card-info">
+                        <h4>ℹ️ Contexto del torneo</h4>
+                        <ul>
+                            <li>48 equipos · 12 grupos de 4 · 104 partidos</li>
+                            <li>Inauguración: 11 jun (México vs Sudáfrica, Azteca)</li>
+                            <li>Final: 19 jul (MetLife, Nueva York)</li>
+                            <li>Dieciseisavos: 28 jun – 3 jul ✅ estamos de viaje</li>
+                            <li>Octavos: 4 – 7 jul ✅ estamos de viaje</li>
+                            <li>Cuartos: 9 – 11 jul · 9 jul = último día</li>
+                            <li>Horarios: juegos en hora local USA/México<br>España (CEST = UTC+2): sumar ~6-7h</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="legend-bar">
+                    <span>🇪🇸 Fondo rojo = partido de España</span>
+                    <span>🇩🇪 Fondo amarillo = partido de Alemania</span>
+                    <span><span class="badge-esp">ESP</span> <span class="badge-ale">GER</span> <span class="badge-arg">ARG</span> <span class="badge-bra">BRA</span> <span class="badge-fra">FRA</span> <span class="badge-eng">ENG</span> <span class="badge-por">POR</span> = selecciones destacadas</span>
+                </div>
+
+                <!-- ══ POSIBILIDADES ESPAÑA ══════════════════════ -->
+                <div class="bracket-esp">
+                    <h3>🇪🇸 Posibilidades de España en las Eliminatorias</h3>
+                    <p>Grupo H: España · Uruguay · Arabia Saudita · Cabo Verde. El camino depende de si acaba 1ª o 2ª de grupo. Todos los horarios locales son 16:00 ó 19:00 (J3 y eliminatorias).</p>
+                    <div class="bracket-row">
+                        <div class="bracket-card card-1h">
+                            <h5>🥇 Si España acaba <strong>1ª del Grupo H</strong></h5>
+                            <ul>
+                                <li><strong>Dieciseisavos — 2 jul</strong> · SoFi Stadium, Los Ángeles<br>
+                                    <small>🇪🇸 1H vs 2J · Grupo J: <strong>Argentina</strong>, Argelia, Austria, Jordania<br>
+                                    ⏰ 16:00 ó 19:00 PDT → <strong>01:00 ó 04:00 h España</strong></small></li>
+                                <li><strong>Octavos — 6 jul</strong> · AT&amp;T Stadium, Dallas<br>
+                                    <small>vs ganador P83 (2K vs 2L)<br>
+                                    Posibles rivales: <strong>Portugal</strong> (si 2K) ó <strong>Inglaterra</strong> (si 2L)<br>
+                                    ⏰ 16:00 ó 19:00 CDT → <strong>23:00 ó 02:00 h España</strong></small></li>
+                                <li style="color:#999"><strong>Cuartos — 10 jul</strong> · Dallas (ya terminamos el viaje ✈️)</li>
+                            </ul>
+                        </div>
+                        <div class="bracket-card card-2h">
+                            <h5>🥈 Si España acaba <strong>2ª del Grupo H</strong></h5>
+                            <ul>
+                                <li><strong>Dieciseisavos — 3 jul</strong> · Hard Rock Stadium, Miami<br>
+                                    <small>1J vs 2H 🇪🇸 · 1J probable: <strong>🇦🇷 Argentina</strong><br>
+                                    ⚠️ <strong>POSIBLE ESPAÑA vs ARGENTINA</strong><br>
+                                    ⏰ 16:00 ó 19:00 EDT → <strong>22:00 ó 01:00 h España</strong></small></li>
+                                <li><strong>Octavos — 7 jul</strong> · Mercedes-Benz Stadium, Atlanta<br>
+                                    <small>vs ganador P88 (2D vs 2G)<br>
+                                    Posibles rivales: <strong>USA</strong> (2D) ó <strong>Bélgica</strong>/NZ (2G)<br>
+                                    ⏰ 16:00 ó 19:00 EDT → <strong>22:00 ó 01:00 h España</strong></small></li>
+                                <li style="color:#999"><strong>Cuartos — 11 jul</strong> · Kansas City (ya terminamos el viaje ✈️)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p style="font-size:.79rem; color:#888; margin:.6rem 0 0">ℹ️ Si España queda 3ª (mejor tercer lugar), podría jugar R16 el 30 jun ó 1 jul en sede variable según combinación de grupos. · ⏰ Conversiones: PDT+9h, CDT-Mexico+8h, CDT+7h, EDT+6h = hora España (CEST)</p>
+                </div>
+
+                <!-- ══ FASE DE GRUPOS — JORNADA 3 (25-27 jun) ════ -->
+                <div class="section-title">⚽ Jornada 3 de Grupos — 25 al 27 de junio</div>
+
+                <!-- 25 junio -->
+                <div class="match-day">
+                    <div class="match-day-header">
+                        <span class="md-date">25 junio (jue)</span>
+                        <span class="md-phase">Jornada 3 — Grupos D, E, F</span>
+                        <span class="md-trip">🚐 Viaje: Dolomitas (Canazei)</span>
+                        <span class="md-time">⏰ 16:00 ó 19:00 local · EDT+6h / PDT+9h / CDT+7h España</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Grupo</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>59</td>
+                                    <td>🇹🇷 Turquía</td><td>vs</td><td>🇺🇸 Estados Unidos</td>
+                                    <td>D</td><td>SoFi Stadium, Los Ángeles</td>
+                                </tr>
+                                <tr>
+                                    <td>60</td>
+                                    <td>🇵🇾 Paraguay</td><td>vs</td><td>🇦🇺 Australia</td>
+                                    <td>D</td><td>Levi's Stadium, San Francisco</td>
+                                </tr>
+                                <tr class="highlight-ger">
+                                    <td>56</td>
+                                    <td>🇪🇨 Ecuador</td><td>vs</td>
+                                    <td>🇩🇪 <strong>Alemania</strong> <span class="badge-ale">GER</span></td>
+                                    <td>E</td><td>MetLife Stadium, Nueva Jersey/NY</td>
+                                </tr>
+                                <tr>
+                                    <td>55</td>
+                                    <td>🇨🇼 Curazao</td><td>vs</td><td>🇨🇮 Costa de Marfil</td>
+                                    <td>E</td><td>Lincoln Financial Field, Filadelfia</td>
+                                </tr>
+                                <tr>
+                                    <td>57</td>
+                                    <td>🇯🇵 Japón</td><td>vs</td><td>🇸🇪 Suecia</td>
+                                    <td>F</td><td>Arrowhead Stadium, Kansas City</td>
+                                </tr>
+                                <tr>
+                                    <td>58</td>
+                                    <td>🇹🇳 Túnez</td><td>vs</td><td>🇳🇱 Países Bajos</td>
+                                    <td>F</td><td>AT&amp;T Stadium, Dallas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 26 junio -->
+                <div class="match-day featured-day">
+                    <div class="match-day-header">
+                        <span class="md-date">26 junio (vie)</span>
+                        <span class="md-phase">Jornada 3 — Grupos G, H, I · ⭐ ESPAÑA JUEGA</span>
+                        <span class="md-trip">🚐 Viaje: Dolomitas → parada hacia Europa-Park</span>
+                        <span class="md-time">⏰ P66 España (Guadalajara CDT-Mx): 16:00 → 00:00 h · 19:00 → 03:00 h España</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Grupo</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>64</td>
+                                    <td>🇳🇿 Nueva Zelanda</td><td>vs</td><td>🇧🇪 Bélgica</td>
+                                    <td>G</td><td>Estadio BC Place, Vancouver</td>
+                                </tr>
+                                <tr>
+                                    <td>63</td>
+                                    <td>🇪🇬 Egipto</td><td>vs</td><td>🇮🇷 Irán</td>
+                                    <td>G</td><td>Lumen Field, Seattle <em>(Partido del Orgullo)</em></td>
+                                </tr>
+                                <tr class="highlight-spain">
+                                    <td>66</td>
+                                    <td>🇺🇾 Uruguay</td><td>vs</td>
+                                    <td>🇪🇸 <strong>ESPAÑA</strong> <span class="badge-esp">ESP</span></td>
+                                    <td><strong>H</strong></td>
+                                    <td><strong>Estadio Chivas, Guadalajara 🔴</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>65</td>
+                                    <td>🇨🇻 Cabo Verde</td><td>vs</td><td>🇸🇦 Arabia Saudita</td>
+                                    <td>H</td><td>NRG Stadium, Houston</td>
+                                </tr>
+                                <tr>
+                                    <td>61</td>
+                                    <td>🇳🇴 Noruega</td><td>vs</td>
+                                    <td>🇫🇷 Francia <span class="badge-fra">FRA</span></td>
+                                    <td>I</td><td>Gillette Stadium, Boston</td>
+                                </tr>
+                                <tr>
+                                    <td>62</td>
+                                    <td>🇸🇳 Senegal</td><td>vs</td><td>🇮🇶 Irak</td>
+                                    <td>I</td><td>BMO Field, Toronto</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 27 junio -->
+                <div class="match-day">
+                    <div class="match-day-header">
+                        <span class="md-date">27 junio (sáb)</span>
+                        <span class="md-phase">Jornada 3 — Grupos J, K, L</span>
+                        <span class="md-trip">🚐 Viaje: camino a Europa-Park (Lindau o Innsbruck)</span>
+                        <span class="md-time">⏰ 16:00 ó 19:00 local · EDT+6h / CDT+7h España</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Grupo</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>70</td>
+                                    <td>🇯🇴 Jordania</td><td>vs</td>
+                                    <td>🇦🇷 Argentina <span class="badge-arg">ARG</span></td>
+                                    <td>J</td><td>AT&amp;T Stadium, Dallas</td>
+                                </tr>
+                                <tr>
+                                    <td>69</td>
+                                    <td>🇩🇿 Argelia</td><td>vs</td><td>🇦🇹 Austria</td>
+                                    <td>J</td><td>Arrowhead Stadium, Kansas City</td>
+                                </tr>
+                                <tr>
+                                    <td>71</td>
+                                    <td>🇨🇴 Colombia</td><td>vs</td>
+                                    <td>🇵🇹 Portugal <span class="badge-por">POR</span></td>
+                                    <td>K</td><td>Hard Rock Stadium, Miami</td>
+                                </tr>
+                                <tr>
+                                    <td>72</td>
+                                    <td>🇨🇩 R.D. Congo</td><td>vs</td><td>🇺🇿 Uzbekistán</td>
+                                    <td>K</td><td>Mercedes-Benz Stadium, Atlanta</td>
+                                </tr>
+                                <tr>
+                                    <td>67</td>
+                                    <td>🇵🇦 Panamá</td><td>vs</td>
+                                    <td>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra <span class="badge-eng">ENG</span></td>
+                                    <td>L</td><td>MetLife Stadium, Nueva Jersey/NY</td>
+                                </tr>
+                                <tr>
+                                    <td>68</td>
+                                    <td>🇭🇷 Croacia</td><td>vs</td><td>🇬🇭 Ghana</td>
+                                    <td>L</td><td>Lincoln Financial Field, Filadelfia</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ══ DIECISEISAVOS DE FINAL (28 jun – 3 jul) ════ -->
+                <div class="section-title">🔟 Dieciseisavos de Final — 28 junio al 3 julio</div>
+                <p style="font-size:.85rem; color:#555; margin-bottom:.75rem;">🔴 España como 1H jugaría el <strong>2 jul</strong> en Los Ángeles (01:00 ó 04:00 h España) · como 2H jugaría el <strong>3 jul</strong> en Miami (22:00 ó 01:00 h España) · Todos los partidos eliminatorios a las <strong>16:00 ó 19:00 hora local</strong></p>
+
+                <!-- 28 junio -->
+                <div class="match-day">
+                    <div class="match-day-header">
+                        <span class="md-date">28 junio (dom)</span>
+                        <span class="md-phase">Dieciseisavos — Partido 73</span>
+                        <span class="md-trip">🚐 Europa-Park — 1er día</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>73</td>
+                                    <td><span class="badge-tbd">2A</span></td><td>vs</td><td><span class="badge-tbd">2B</span></td>
+                                    <td>SoFi Stadium, Los Ángeles</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 29 junio -->
+                <div class="match-day">
+                    <div class="match-day-header">
+                        <span class="md-date">29 junio (lun)</span>
+                        <span class="md-phase">Dieciseisavos — Partidos 74, 75, 76</span>
+                        <span class="md-trip">🚐 Europa-Park — 2º día · Rulantica</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr class="highlight-ger">
+                                    <td>74</td>
+                                    <td><span class="badge-tbd">1E</span> <em>(poss. 🇩🇪 Ale.)</em></td><td>vs</td>
+                                    <td><span class="badge-tbd">3A/B/C/D/F</span></td>
+                                    <td>Gillette Stadium, Boston</td>
+                                </tr>
+                                <tr>
+                                    <td>75</td>
+                                    <td><span class="badge-tbd">1F</span></td><td>vs</td><td><span class="badge-tbd">2C</span></td>
+                                    <td>Estadio BBVA, Monterrey</td>
+                                </tr>
+                                <tr>
+                                    <td>76</td>
+                                    <td><span class="badge-tbd">1C</span></td><td>vs</td><td><span class="badge-tbd">2F</span></td>
+                                    <td>NRG Stadium, Houston</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 30 junio -->
+                <div class="match-day">
+                    <div class="match-day-header">
+                        <span class="md-date">30 junio (mar)</span>
+                        <span class="md-phase">Dieciseisavos — Partidos 77, 78, 79</span>
+                        <span class="md-trip">🚐 Europa-Park → tránsito hacia Cataratas del Rin</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>77</td>
+                                    <td><span class="badge-tbd">1I</span></td><td>vs</td><td><span class="badge-tbd">3C/D/F/G/H</span></td>
+                                    <td>MetLife Stadium, Nueva Jersey/NY</td>
+                                </tr>
+                                <tr class="highlight-ger">
+                                    <td>78</td>
+                                    <td><span class="badge-tbd">2E</span> <em>(poss. 🇩🇪 Ale.)</em></td><td>vs</td><td><span class="badge-tbd">2I</span></td>
+                                    <td>AT&amp;T Stadium, Dallas</td>
+                                </tr>
+                                <tr>
+                                    <td>79</td>
+                                    <td><span class="badge-tbd">1A</span></td><td>vs</td><td><span class="badge-tbd">3C/E/F/H/I</span></td>
+                                    <td>Estadio Azteca, Ciudad de México</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1 julio -->
+                <div class="match-day">
+                    <div class="match-day-header">
+                        <span class="md-date">1 julio (mié)</span>
+                        <span class="md-phase">Dieciseisavos — Partidos 80, 81, 82</span>
+                        <span class="md-trip">🚐 Cataratas del Rin (Schaffhausen)</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>80</td>
+                                    <td><span class="badge-tbd">1L</span> <em>(poss. 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Ing.)</em></td><td>vs</td><td><span class="badge-tbd">3E/H/I/J/K</span></td>
+                                    <td>Mercedes-Benz Stadium, Atlanta</td>
+                                </tr>
+                                <tr>
+                                    <td>81</td>
+                                    <td><span class="badge-tbd">1D</span> <em>(poss. 🇺🇸 USA)</em></td><td>vs</td><td><span class="badge-tbd">3B/E/F/I/J</span></td>
+                                    <td>Levi's Stadium, San Francisco</td>
+                                </tr>
+                                <tr>
+                                    <td>82</td>
+                                    <td><span class="badge-tbd">1G</span></td><td>vs</td><td><span class="badge-tbd">3A/E/H/I/J</span></td>
+                                    <td>Lumen Field, Seattle</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 2 julio -->
+                <div class="match-day featured-day">
+                    <div class="match-day-header">
+                        <span class="md-date">2 julio (jue)</span>
+                        <span class="md-phase">Dieciseisavos — Partidos 83, 84, 85 · ⭐ Posible ESPAÑA (si 1H)</span>
+                        <span class="md-trip">🚐 Cataratas del Rin → tránsito hacia Zúrich</span>
+                        <span class="md-time">⏰ P84 España (LA·PDT): 16:00 → 01:00 h · 19:00 → 04:00 h España</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>83</td>
+                                    <td><span class="badge-tbd">2K</span> <em>(poss. 🇵🇹 Por.)</em></td><td>vs</td><td><span class="badge-tbd">2L</span> <em>(poss. 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Ing.)</em></td>
+                                    <td>Estadio Nacional de Canadá, Toronto</td>
+                                </tr>
+                                <tr class="highlight-spain">
+                                    <td>84</td>
+                                    <td><span class="badge-tbd">1H</span> <strong>🇪🇸 ESPAÑA</strong> <em>(si 1ª grupo)</em></td><td>vs</td><td><span class="badge-tbd">2J</span></td>
+                                    <td><strong>SoFi Stadium, Los Ángeles 🔴</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>85</td>
+                                    <td><span class="badge-tbd">1B</span> <em>(poss. 🇨🇦 Canadá)</em></td><td>vs</td><td><span class="badge-tbd">3E/F/G/I/J</span></td>
+                                    <td>Estadio BC Place, Vancouver</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 3 julio -->
+                <div class="match-day featured-day">
+                    <div class="match-day-header">
+                        <span class="md-date">3 julio (vie)</span>
+                        <span class="md-phase">Dieciseisavos — Partidos 86, 87, 88 · ⭐ Posible ESPAÑA (si 2H)</span>
+                        <span class="md-trip">🚐 Zúrich (P&amp;R Sihlcity) → Sarnen</span>
+                        <span class="md-time">⏰ P86 España (Miami·EDT): 16:00 → 22:00 h · 19:00 → 01:00 h España</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>86</td>
+                                    <td><span class="badge-tbd">1J</span> <em>(poss. 🇦🇷 Arg.)</em></td><td>vs</td>
+                                    <td><span class="badge-tbd">2H</span> <strong>🇪🇸 ESPAÑA</strong> <em>(si 2ª grupo)</em></td>
+                                    <td><strong>Hard Rock Stadium, Miami 🔴</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>87</td>
+                                    <td><span class="badge-tbd">1K</span></td><td>vs</td><td><span class="badge-tbd">3D/E/I/J/L</span></td>
+                                    <td>Arrowhead Stadium, Kansas City</td>
+                                </tr>
+                                <tr>
+                                    <td>88</td>
+                                    <td><span class="badge-tbd">2D</span></td><td>vs</td><td><span class="badge-tbd">2G</span></td>
+                                    <td>AT&amp;T Stadium, Dallas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ══ OCTAVOS DE FINAL (4-7 jul) ════════════════ -->
+                <div class="section-title">⚡ Octavos de Final — 4 al 7 de julio</div>
+
+                <!-- 4 julio -->
+                <div class="match-day">
+                    <div class="match-day-header">
+                        <span class="md-date">4 julio (sáb)</span>
+                        <span class="md-phase">Octavos — Partidos 89, 90</span>
+                        <span class="md-trip">🚐 Sarnen → Lauterbrunnen (Alpes suizos)</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr><td>89</td><td><span class="badge-tbd">G.P74</span></td><td>vs</td><td><span class="badge-tbd">G.P77</span></td><td>Lincoln Financial Field, Filadelfia</td></tr>
+                                <tr><td>90</td><td><span class="badge-tbd">G.P73</span></td><td>vs</td><td><span class="badge-tbd">G.P75</span></td><td>NRG Stadium, Houston</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 5 julio -->
+                <div class="match-day">
+                    <div class="match-day-header">
+                        <span class="md-date">5 julio (dom)</span>
+                        <span class="md-phase">Octavos — Partidos 91, 92</span>
+                        <span class="md-trip">🚐 Lauterbrunnen — Jungfraujoch / Trümmelbach</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr><td>91</td><td><span class="badge-tbd">G.P76</span></td><td>vs</td><td><span class="badge-tbd">G.P78</span></td><td>MetLife Stadium, Nueva Jersey/NY</td></tr>
+                                <tr><td>92</td><td><span class="badge-tbd">G.P79</span></td><td>vs</td><td><span class="badge-tbd">G.P80</span></td><td>Estadio Azteca, Ciudad de México</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 6 julio -->
+                <div class="match-day">
+                    <div class="match-day-header">
+                        <span class="md-date">6 julio (lun)</span>
+                        <span class="md-phase">Octavos — Partidos 93, 94 · ⭐ Posible España (si 1H, ganó P84)</span>
+                        <span class="md-trip">🚐 Lauterbrunnen — Alpes suizos</span>
+                        <span class="md-time">⏰ P93 España (Dallas·CDT): 16:00 → 23:00 h · 19:00 → 02:00 h España</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr><td>93</td><td><span class="badge-tbd">G.P83</span></td><td>vs</td><td><span class="badge-tbd">G.P84</span> <em>🇪🇸 ¿ESP?</em></td><td>AT&amp;T Stadium, Dallas</td></tr>
+                                <tr><td>94</td><td><span class="badge-tbd">G.P81</span></td><td>vs</td><td><span class="badge-tbd">G.P82</span></td><td>Lumen Field, Seattle</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 7 julio -->
+                <div class="match-day featured-day">
+                    <div class="match-day-header">
+                        <span class="md-date">7 julio (mar)</span>
+                        <span class="md-phase">Octavos — Partidos 95, 96 · ⭐ Posible España (si 2H, ganó P86)</span>
+                        <span class="md-trip">🚐 Lauterbrunnen → inicio tránsito hacia Bérgamo</span>
+                        <span class="md-time">⏰ P95 España (Atlanta·EDT): 16:00 → 22:00 h · 19:00 → 01:00 h España</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr class="highlight-spain">
+                                    <td>95</td>
+                                    <td><span class="badge-tbd">G.P86</span> <em>🇪🇸 ¿ESP?</em></td><td>vs</td><td><span class="badge-tbd">G.P88</span></td>
+                                    <td>Mercedes-Benz Stadium, Atlanta</td>
+                                </tr>
+                                <tr>
+                                    <td>96</td>
+                                    <td><span class="badge-tbd">G.P85</span></td><td>vs</td><td><span class="badge-tbd">G.P87</span></td>
+                                    <td>Estadio BC Place, Vancouver</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ══ CUARTOS (9 jul — último día) ═════════════ -->
+                <div class="section-title">🏆 Cuartos de Final — 9 julio (último día del viaje)</div>
+
+                <div class="match-day">
+                    <div class="match-day-header">
+                        <span class="md-date">9 julio (jue)</span>
+                        <span class="md-phase">Cuartos — Partido 97 <em>(España no llega aquí: sus cuartos son 10/11 jul)</em></span>
+                        <span class="md-trip">🚐 Bérgamo — último día antes de devolver la camper</span>
+                        <span class="md-time">⏰ 16:00 ó 19:00 EDT → 22:00 ó 01:00 h España</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="matches-table">
+                            <thead><tr><th>Partido</th><th>Equipo 1</th><th></th><th>Equipo 2</th><th>Estadio / Ciudad</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>97</td>
+                                    <td><span class="badge-tbd">G.P89</span></td><td>vs</td><td><span class="badge-tbd">G.P90</span></td>
+                                    <td>Gillette Stadium, Boston</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ══ RESTO DEL TORNEO (después del viaje) ═══════ -->
+                <div class="section-title">📅 Resto del torneo — después del viaje (desde 10 jul)</div>
+                <div class="table-responsive">
+                    <table class="matches-table">
+                        <thead><tr><th>Fecha</th><th>Fase</th><th>Partidos</th><th>Sedes</th></tr></thead>
+                        <tbody>
+                            <tr><td>10 jul</td><td>Cuartos de final (P98)</td><td>G.P93 vs G.P94</td><td>SoFi Stadium, Los Ángeles</td></tr>
+                            <tr><td>11 jul</td><td>Cuartos de final (P99, P100)</td><td>G.P91 vs G.P92 · G.P95 vs G.P96</td><td>Miami · Kansas City</td></tr>
+                            <tr><td>14 jul</td><td>Semifinal (P101)</td><td>G.P97 vs G.P98</td><td>AT&amp;T Stadium, Dallas</td></tr>
+                            <tr><td>15 jul</td><td>Semifinal (P102)</td><td>G.P99 vs G.P100</td><td>Mercedes-Benz Stadium, Atlanta</td></tr>
+                            <tr><td>18 jul</td><td>Tercer puesto (P103)</td><td>Perd. P101 vs Perd. P102</td><td>Hard Rock Stadium, Miami</td></tr>
+                            <tr><td><strong>19 jul 🏆</strong></td><td><strong>FINAL (P104)</strong></td><td><strong>G.P101 vs G.P102</strong></td><td><strong>MetLife Stadium, Nueva York/NJ</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="price-tag">⚽ España en Grupo H · Rival de viaje: Alemania (Grupo E) · Final: 19 jul MetLife Stadium NY</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Heidy en Voltron - Aventura Europea. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

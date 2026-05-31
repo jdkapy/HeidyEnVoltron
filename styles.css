@@ -227,6 +227,39 @@ main {
     color: var(--primary-color);
 }
 
+.day-content a,
+.card-content a {
+    text-decoration: none;
+    color: #464feb;
+}
+
+.day-content a:hover,
+.card-content a:hover {
+    text-decoration: underline;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.sleep-options-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.sleep-options-table tr th,
+.sleep-options-table tr td {
+    border: 1px solid #e6e6e6;
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.sleep-options-table tr th {
+    background-color: #f5f5f5;
+}
+
 /* Content Pages */
 .page-header {
     background: var(--primary-color);

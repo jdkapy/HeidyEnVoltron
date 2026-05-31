@@ -87,6 +87,8 @@
                 <li><a href="presupuesto.html">Presupuesto</a></li>
                 <li><a href="vuelos.html">Vuelos</a></li>
                 <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="rutas.html">Rutas</a></li>
+                <li><a href="mundial.html">Mundial</a></li>
                 <li><a href="tareas.html">Por hacer</a></li>
             </ul>
         </nav>
@@ -108,17 +110,250 @@
                         <p>Marca cuando este hecho y apunta quien lo hizo</p>
                     </div>
                     <div class="card-content">
+                        <!-- ═══════════════════════════════════════════
+                             🔴 ALTA PRIORIDAD — reservar con antelación
+                             ═══════════════════════════════════════════ -->
+                        <h4 style="margin:1.5rem 0 0.75rem; color:#c0392b;">🔴 Alta prioridad — reservar cuanto antes</h4>
                         <ul class="todo-list">
+
+                            <li class="todo-item" data-task-id="entradas-europa-park">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-entradas-europa-park">
+                                    <label class="todo-text" for="check-entradas-europa-park">Comprar entradas Europa-Park — 2 días (29-30 jun) × 5 personas</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-entradas-europa-park">Hecho por:</label>
+                                    <input type="text" id="owner-entradas-europa-park" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Web: <a href="https://www.europapark.de/es/entradas" target="_blank">europapark.de/es/entradas</a> — precio varía por fecha, comprar online para descuento</p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="entradas-rulantica">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-entradas-rulantica">
+                                    <label class="todo-text" for="check-entradas-rulantica">Comprar entradas Rulantica (parque acuático) — 1 jul × 5 personas</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-entradas-rulantica">Hecho por:</label>
+                                    <input type="text" id="owner-entradas-rulantica" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">~€25-35/persona. Web: <a href="https://www.rulantica.de/es/entradas" target="_blank">rulantica.de/es/entradas</a></p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="tren-jungfraujoch">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-tren-jungfraujoch">
+                                    <label class="todo-text" for="check-tren-jungfraujoch">Reservar tren Jungfraujoch — 4 jul × 5 personas (⚠️ se agota)</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-tren-jungfraujoch">Hecho por:</label>
+                                    <input type="text" id="owner-tren-jungfraujoch" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">~100-120 CHF/persona ida-vuelta desde Lauterbrunnen. Web: <a href="https://www.jungfrau.ch/en-gb/jungfraujoch-top-of-europe/" target="_blank">jungfrau.ch</a> — comprar con semanas de antelación en temporada alta</p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="reservar-camping-jungfrau">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-reservar-camping-jungfrau">
+                                    <label class="todo-text" for="check-reservar-camping-jungfrau">Reservar Camping Jungfrau (Lauterbrunnen) — 2 noches (3-5 jul)</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-reservar-camping-jungfrau">Hecho por:</label>
+                                    <input type="text" id="owner-reservar-camping-jungfrau" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">~40-70 CHF/noche. Web: <a href="https://www.campingjungfrau.swiss" target="_blank">campingjungfrau.swiss</a> — se llena muy rápido en julio</p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="entradas-lindt">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-entradas-lindt">
+                                    <label class="todo-text" for="check-entradas-lindt">Reservar Lindt Home of Chocolate (Kilchberg) — 3 jul × 5 personas</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-entradas-lindt">Hecho por:</label>
+                                    <input type="text" id="owner-entradas-lindt" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">~17 CHF/persona. Web: <a href="https://www.lindt-home-of-chocolate.com/en/tickets" target="_blank">lindt-home-of-chocolate.com</a> — requiere franja horaria reservada</p>
+                            </li>
+
+                        </ul>
+
+                        <!-- ═══════════════════════════════════════════
+                             🟡 MEDIA PRIORIDAD — viñetas y documentos
+                             ═══════════════════════════════════════════ -->
+                        <h4 style="margin:1.5rem 0 0.75rem; color:#e67e22;">🟡 Media prioridad — viñetas y documentos</h4>
+                        <ul class="todo-list">
+
+                            <li class="todo-item" data-task-id="vineta-suiza">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-vineta-suiza">
+                                    <label class="todo-text" for="check-vineta-suiza">Comprar viñeta Suiza (obligatoria autopistas) — 40 CHF (~40€)</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-vineta-suiza">Hecho por:</label>
+                                    <input type="text" id="owner-vineta-suiza" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Se puede comprar en la frontera, gasolineras suizas o en: <a href="https://www.ch.ch/en/motorway-tax-sticker/" target="_blank">ch.ch/en/motorway-tax-sticker</a></p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="vinetas-caravana">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-vinetas-caravana">
+                                    <label class="todo-text" for="check-vinetas-caravana">Revisar otras viñetas necesarias para la autocaravana (Italia/Alemania)</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-vinetas-caravana">Hecho por:</label>
+                                    <input type="text" id="owner-vinetas-caravana" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Italia: peajes de autopista (se pagan en cabina). Alemania: sin viñeta, autopistas gratuitas para turistas.</p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="peaje-tres-cimas">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-peaje-tres-cimas">
+                                    <label class="todo-text" for="check-peaje-tres-cimas">Prever peaje acceso Tres Cimas de Lavaredo — ~30€/vehículo</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-peaje-tres-cimas">Hecho por:</label>
+                                    <input type="text" id="owner-peaje-tres-cimas" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Se paga directamente en el acceso (carretera Auronzo). Llevar efectivo por si acaso.</p>
+                            </li>
+
                             <li class="todo-item" data-task-id="parking-barajas">
                                 <div class="todo-main">
                                     <input type="checkbox" id="check-parking-barajas">
-                                    <label class="todo-text" for="check-parking-barajas">Reservar el parquin de Barajas</label>
+                                    <label class="todo-text" for="check-parking-barajas">Reservar parking Barajas (ida y vuelta, 15 días)</label>
                                 </div>
                                 <div class="todo-meta">
                                     <label for="owner-parking-barajas">Hecho por:</label>
                                     <input type="text" id="owner-parking-barajas" placeholder="Nombre de quien lo hizo">
                                 </div>
+                                <p class="todo-help">Comparar en <a href="https://www.parkingsdemexico.com" target="_blank">parkingsdemexico.com</a> o directamente en AENA. Reservar con antelación para mejor precio.</p>
                             </li>
+
+                        </ul>
+
+                        <!-- ═══════════════════════════════════════════
+                             🟢 NORMAL — entradas en taquilla o en ruta
+                             ═══════════════════════════════════════════ -->
+                        <h4 style="margin:1.5rem 0 0.75rem; color:#27ae60;">🟢 Normal — se pueden comprar en el momento</h4>
+                        <ul class="todo-list">
+
+                            <li class="todo-item" data-task-id="sass-pordoi">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-sass-pordoi">
+                                    <label class="todo-text" for="check-sass-pordoi">Teleférico Sass Pordoi (Dolomitas) — ~17€/persona × 5 = ~85€</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-sass-pordoi">Hecho por:</label>
+                                    <input type="text" id="owner-sass-pordoi" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Web oficial: <a href="https://www.sasspordoi.it/" target="_blank">sasspordoi.it</a> — taquilla en el Passo Pordoi. Confirmar horario antes de subir.</p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="fun-bob">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-fun-bob">
+                                    <label class="todo-text" for="check-fun-bob">Fun Bob Dolomitas (trineo de verano) — ~18,50€/persona × 5 = ~92€</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-fun-bob">Hecho por:</label>
+                                    <input type="text" id="owner-fun-bob" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Taquilla en el acceso. <a href="https://www.youtube.com/watch?v=3rH6sK2sslY" target="_blank">Ver video</a> — sin reserva previa necesaria.</p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="barco-rheinfall">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-barco-rheinfall">
+                                    <label class="todo-text" for="check-barco-rheinfall">Barco roca central Cataratas del Rin — ~20 CHF adultos / 10 CHF niños</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-barco-rheinfall">Hecho por:</label>
+                                    <input type="text" id="owner-barco-rheinfall" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Se compra directamente en el embarcadero de Neuhausen am Rheinfall. No requiere reserva.</p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="trummelbach">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-trummelbach">
+                                    <label class="todo-text" for="check-trummelbach">Trümmelbach Falls (cascadas interiores) — ~12 CHF/persona × 5 = ~60 CHF</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-trummelbach">Hecho por:</label>
+                                    <input type="text" id="owner-trummelbach" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Taquilla en el acceso. Web: <a href="https://www.trümmelbachfälle.ch" target="_blank">trümmelbachfälle.ch</a></p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="mannlichen">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-mannlichen">
+                                    <label class="todo-text" for="check-mannlichen">Teleférico Männlichen (Wengen → Männlichen) — ~40-60 CHF/persona</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-mannlichen">Hecho por:</label>
+                                    <input type="text" id="owner-mannlichen" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Alternativa a Jungfraujoch. Web: <a href="https://www.maennlichen.ch" target="_blank">maennlichen.ch</a></p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="duomo-terraza">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-duomo-terraza">
+                                    <label class="todo-text" for="check-duomo-terraza">Duomo di Milano terraza (ascensor) — 15€ adultos / 7,50€ niños</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-duomo-terraza">Hecho por:</label>
+                                    <input type="text" id="owner-duomo-terraza" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Reserva online recomendada para evitar cola: <a href="https://www.duomomilano.it/en/duomo-museum-and-monuments-tickets/" target="_blank">duomomilano.it</a></p>
+                            </li>
+
+                            <li class="todo-item" data-task-id="funicular-bergamo">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-funicular-bergamo">
+                                    <label class="todo-text" for="check-funicular-bergamo">Funicular Bérgamo (Città Bassa → Città Alta) — ~2-3€/persona</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-funicular-bergamo">Hecho por:</label>
+                                    <input type="text" id="owner-funicular-bergamo" placeholder="Nombre de quien lo hizo">
+                                </div>
+                                <p class="todo-help">Se compra en el momento en la estación. Sin reserva previa.</p>
+                            </li>
+
+                        </ul>
+
+                        <!-- ═══════════════════════════════════════════
+                             📋 Pendientes generales
+                             ═══════════════════════════════════════════ -->
+                        <h4 style="margin:1.5rem 0 0.75rem; color:#555;">📋 Pendientes generales</h4>
+                        <ul class="todo-list">
+
+                            <li class="todo-item" data-task-id="tour-milan">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-tour-milan">
+                                    <label class="todo-text" for="check-tour-milan">Confirmar tour de Milán (25-26 jun)</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-tour-milan">Hecho por:</label>
+                                    <input type="text" id="owner-tour-milan" placeholder="Nombre de quien lo hizo">
+                                </div>
+                            </li>
+
+                            <li class="todo-item" data-task-id="free-tour-zurich">
+                                <div class="todo-main">
+                                    <input type="checkbox" id="check-free-tour-zurich">
+                                    <label class="todo-text" for="check-free-tour-zurich">Reservar free tour en Zúrich (3 jul)</label>
+                                </div>
+                                <div class="todo-meta">
+                                    <label for="owner-free-tour-zurich">Hecho por:</label>
+                                    <input type="text" id="owner-free-tour-zurich" placeholder="Nombre de quien lo hizo">
+                                </div>
+                            </li>
+
                             <li class="todo-item" data-task-id="precio-maleta">
                                 <div class="todo-main">
                                     <input type="checkbox" id="check-precio-maleta">
@@ -129,19 +364,11 @@
                                     <input type="text" id="owner-precio-maleta" placeholder="Nombre de quien lo hizo">
                                 </div>
                             </li>
-                            <li class="todo-item" data-task-id="tour-milan">
-                                <div class="todo-main">
-                                    <input type="checkbox" id="check-tour-milan">
-                                    <label class="todo-text" for="check-tour-milan">Confirmar tour de Milan</label>
-                                </div>
-                                <div class="todo-meta">
-                                    <label for="owner-tour-milan">Hecho por:</label>
-                                    <input type="text" id="owner-tour-milan" placeholder="Nombre de quien lo hizo">
-                                </div>
-                            </li>
+
                         </ul>
-                        <p class="todo-help">Los cambios no se guardan al recargar la pagina.</p>
-                        <div class="price-tag">Prioridad alta</div>
+
+                        <p class="todo-help">Los cambios no se guardan al recargar la página.</p>
+                        <div class="price-tag">🔴 Alta prioridad: Europa-Park · Jungfraujoch · Camping Jungfrau · Lindt</div>
                     </div>
                 </div>
             </div>
